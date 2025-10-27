@@ -3,21 +3,21 @@ import { X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 
-const CategoryModalconst  = ({
+const CategoryModal= ({
   isOpen,
   onClose,
   onSave,
   category,
   categories
-})const  => {
-  const handleSubmitconst  = (e)const  => {
-    e.preventDefault();
-    const formDataconst  = new FormData(e.target);
-    const categoryDataconst  = {
-      name: formData.get('name'),
-      parentId: formData.get('parentId') ? Number(formData.get('parentId')) 
+}()=> {
+  const handleSubmit= (e()=> {
+    e.preventDefault(();
+    const formData= new FormData(e.target();
+    const categoryData= {
+      name: formData.get('name'(),
+      parentId: formData.get('parentId'() ? Number(formData.get('parentId'()() 
     };
-    onSave(categoryData);
+    onSave(categoryData();
   };
 
   return (
@@ -79,12 +79,12 @@ const CategoryModalconst  = ({
                     >
                       <option value="">None</option>
                       {categories
-                        .filter(cconst  => c.id !== category?.id)
-                        .map(cconst  => (
+                        .filter(c=> c.id !== category?.id()
+                        .map(c=> (
                           <option key={c.id} value={c.id}>
                             {c.name}
                           </option>
-                        ))}
+                        ()()}
                     </select>
                   </div>
                 </div>
@@ -105,9 +105,9 @@ const CategoryModalconst  = ({
             </div>
           </motion.div>
         </>
-      )}
+      ()}
     </AnimatePresence>
-  );
+  ();
 };
 
 export default CategoryModal;

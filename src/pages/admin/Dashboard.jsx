@@ -5,9 +5,9 @@ import {
   ShoppingBag, ChevronRight, Package, Truck
 } from 'lucide-react';
 
-const Dashboardconst  = ()const  => {
-  // Statistics data (mock)
-  const statsconst  = [
+const Dashboard= (()=> {
+  // Statistics data (mock()
+  const stats= [
     {
       title: 'Total Revenue',
       value: '$24,987.50',
@@ -42,8 +42,8 @@ const Dashboardconst  = ()const  => {
     }
   ];
 
-  // Recent orders (mock)
-  const recentOrdersconst  = [
+  // Recent orders (mock()
+  const recentOrders= [
     {
       id: 'ORD-1234',
       customer: 'John Doe',
@@ -86,8 +86,8 @@ const Dashboardconst  = ()const  => {
     }
   ];
 
-  // Top selling products (mock)
-  const topSellingProductsconst  = [
+  // Top selling products (mock()
+  const topSellingProducts= [
     {
       id: 1,
       name: 'NVIDIA GeForce RTX 4090 24GB',
@@ -124,7 +124,7 @@ const Dashboardconst  = ()const  => {
       
       {/* Stats Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {stats.map((stat, index)const  => (
+        {stats.map((stat, index()=> (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
@@ -153,7 +153,7 @@ const Dashboardconst  = ()const  => {
               </div>
             </div>
           </motion.div>
-        ))}
+        ()()}
       </div>
       
       {/* Main Content Grids */}
@@ -194,7 +194,7 @@ const Dashboardconst  = ()const  => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  {recentOrders.map((order, index)const  => (
+                  {recentOrders.map((order, index()=> (
                     <tr key={order.id} className="hover:bg-gray-50">
                       <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-primary">
                         {order.id}
@@ -214,7 +214,7 @@ const Dashboardconst  = ()const  => {
                         </span>
                       </td>
                     </tr>
-                  ))}
+                  ()()}
                 </tbody>
               </table>
             </div>
@@ -236,7 +236,7 @@ const Dashboardconst  = ()const  => {
           </div>
           <div className="p-3">
             <ul className="divide-y divide-gray-200">
-              {topSellingProducts.map((product)const  => (
+              {topSellingProducts.map((product()=> (
                 <li key={product.id} className="py-4">
                   <div className="flex items-start justify-between">
                     <div>
@@ -253,7 +253,7 @@ const Dashboardconst  = ()const  => {
                     </div>
                   </div>
                 </li>
-              ))}
+              ()()}
             </ul>
           </div>
         </motion.div>
@@ -306,7 +306,7 @@ const Dashboardconst  = ()const  => {
         </div>
       </motion.div>
     </div>
-  );
+  ();
 };
 
 export default Dashboard;

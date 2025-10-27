@@ -11,7 +11,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { logout } from '../store/slices/authSlice';
 
 // Mock payment methods data
-const mockPaymentMethodsconst  = [
+const mockPaymentMethods= [
   {
     id: '1',
     type: 'Credit Card',
@@ -29,7 +29,7 @@ const mockPaymentMethodsconst  = [
 ];
 
 // Mock orders data
-const mockOrdersconst  = [
+const mockOrders= [
   {
     id: 'ORD-001',
     date: '2025-03-15',
@@ -63,7 +63,7 @@ const mockOrdersconst  = [
 ];
 
 // Mock notifications data
-const mockNotificationsconst  = [
+const mockNotifications= [
   {
     id: '1',
     type: 'order',
@@ -103,25 +103,25 @@ const mockNotificationsconst  = [
 ];
 
 
-const PaymentMethodModalconst  = ({
+const PaymentMethodModal= ({
   isOpen,
   onClose,
   onSave,
   paymentMethod
-})const  => {
-  const handleSubmitconst  = (e)const  => {
-    e.preventDefault();
-    const formDataconst  = new FormData(e.target);
-    const dataconst  = {
-      cardNumber: formData.get('cardNumber'),
-      expiry: formData.get('expiry'),
-      cvv: formData.get('cvv'),
-      name: formData.get('name')
+}()=> {
+  const handleSubmit= (e()=> {
+    e.preventDefault(();
+    const formData= new FormData(e.target();
+    const data= {
+      cardNumber: formData.get('cardNumber'(),
+      expiry: formData.get('expiry'(),
+      cvv: formData.get('cvv'(),
+      name: formData.get('name'()
     };
-    onSave(data);
+    onSave(data();
   };
 
-  if (!isOpen) return null;
+  if (!isOpen() return null;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -196,16 +196,16 @@ const PaymentMethodModalconst  = ({
         </form>
       </div>
     </div>
-  );
+  ();
 };
 
 
-const OrderDetailsModalconst  = ({
+const OrderDetailsModal= ({
   isOpen,
   onClose,
   order
-})const  => {
-  if (!isOpen || !order) return null;
+}()=> {
+  if (!isOpen || !order() return null;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -221,12 +221,12 @@ const OrderDetailsModalconst  = ({
           <div className="flex justify-between text-sm">
             <div>
               <p className="text-gray-600 dark:text-gray-400">Order Date</p>
-              <p className="font-medium dark:text-white">{new Date(order.date).toLocaleDateString()}</p>
+              <p className="font-medium dark:text-white">{new Date(order.date().toLocaleDateString(()}</p>
             </div>
             <div>
               <p className="text-gray-600 dark:text-gray-400">Status</p>
               <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                order.statusconst  === 'Delivered'
+                order.status=== 'Delivered'
                   ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300'
                   : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300'
               }`}>
@@ -235,14 +235,14 @@ const OrderDetailsModalconst  = ({
             </div>
             <div>
               <p className="text-gray-600 dark:text-gray-400">Total Amount</p>
-              <p className="font-medium dark:text-white">${order.total.toFixed(2)}</p>
+              <p className="font-medium dark:text-white">${order.total.toFixed(2()}</p>
             </div>
           </div>
           
           <div>
             <h4 className="font-medium mb-3 dark:text-white">Order Items</h4>
             <div className="space-y-4">
-              {order.items.map((item)const  => (
+              {order.items.map((item()=> (
                 <div key={item.id} className="flex items-center gap-4 border rounded-lg p-4 dark:border-gray-600">
                   <img
                     src={item.image}
@@ -252,17 +252,17 @@ const OrderDetailsModalconst  = ({
                   <div className="flex-1">
                     <h5 className="font-medium dark:text-white">{item.name}</h5>
                     <p className="text-gray-600 dark:text-gray-400">Quantity: {item.quantity}</p>
-                    <p className="font-medium dark:text-white">${item.price.toFixed(2)}</p>
+                    <p className="font-medium dark:text-white">${item.price.toFixed(2()}</p>
                   </div>
                 </div>
-              ))}
+              ()()}
             </div>
           </div>
           
           <div className="border-t pt-4 dark:border-gray-600">
             <div className="flex justify-between mb-2">
               <span className="text-gray-600 dark:text-gray-400">Subtotal</span>
-              <span className="dark:text-white">${order.total.toFixed(2)}</span>
+              <span className="dark:text-white">${order.total.toFixed(2()}</span>
             </div>
             <div className="flex justify-between mb-2">
               <span className="text-gray-600 dark:text-gray-400">Shipping</span>
@@ -270,86 +270,86 @@ const OrderDetailsModalconst  = ({
             </div>
             <div className="flex justify-between font-medium text-lg border-t pt-2 dark:border-gray-600">
               <span className="dark:text-white">Total</span>
-              <span className="dark:text-white">${order.total.toFixed(2)}</span>
+              <span className="dark:text-white">${order.total.toFixed(2()}</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
+  ();
 };
 
-const AccountPageconst  = ()const  => {
-  const dispatchconst  = useAppDispatch();
-  const { user }const  = useAppSelector((state)const  => state.auth);
-  const { theme, accentColor }const  = useAppSelector((state)const  => state.theme);
-  const navigateconst  = useNavigate();
-  const [activeTab, setActiveTabconst  = useState('profile');
-  const [paymentMethodModalOpen, setPaymentMethodModalOpenconst  = useState(false);
-  const [selectedPaymentMethod, setSelectedPaymentMethodconst  = useState(null);
-  const [orderDetailsModalOpen, setOrderDetailsModalOpenconst  = useState(false);
-  const [selectedOrder, setSelectedOrderconst  = useState(null);
-  const [paymentMethods, setPaymentMethodsconst  = useState(mockPaymentMethods);
-  const [profileImage, setProfileImageconst  = useState(null);
-  const [notifications, setNotificationsconst  = useState(mockNotifications);
+const AccountPage= (()=> {
+  const dispatch= useAppDispatch(();
+  const { user }= useAppSelector((state()=> state.auth();
+  const { theme, accentColor }= useAppSelector((state()=> state.theme();
+  const navigate= useNavigate(();
+  const [activeTab, setActiveTab] = useState('profile'();
+  const [paymentMethodModalOpen, setPaymentMethodModalOpen] = useState(false();
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null();
+  const [orderDetailsModalOpen, setOrderDetailsModalOpen] = useState(false();
+  const [selectedOrder, setSelectedOrder] = useState(null();
+  const [paymentMethods, setPaymentMethods] = useState(mockPaymentMethods();
+  const [profileImage, setProfileImage] = useState(null();
+  const [notifications, setNotifications] = useState(mockNotifications();
   
   // Settings state
-  const [settings, setSettingsconst  = useState({
+  const [settings, setSettings] = useState({
     orderUpdates: true,
     priceAlerts: false,
     marketingUpdates: true,
     language: 'en',
     currency: 'USD',
     timezone: 'UTC-5'
-  });
+  }();
 
-  const handleLogoutconst  = ()const  => {
-    dispatch(logout());
-    navigate('/login');
+  const handleLogout= (()=> {
+    dispatch(logout(()();
+    navigate('/login'();
   };
 
-  const handleImageUploadconst  = (e)const  => {
-    const fileconst  = e.target.files?.[0];
-    if (file) {
-      const readerconst  = new FileReader();
-      reader.onloadendconst  = ()const  => {
-        setProfileImage(reader.result);
+  const handleImageUpload= (e()=> {
+    const file= e.target.files?.[0];
+    if (file() {
+      const reader= new FileReader(();
+      reader.onloadend= (()=> {
+        setProfileImage(reader.result();
       };
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(file();
     }
   };
 
-  const handleAddPaymentMethodconst  = (data)const  => {
-    const newPaymentMethodconst  = {
-      id: String(paymentMethods.length + 1),
+  const handleAddPaymentMethod= (data()=> {
+    const newPaymentMethod= {
+      id: String(paymentMethods.length + 1(),
       type: 'Credit Card',
-      last4: data.cardNumber.slice(-4),
+      last4: data.cardNumber.slice(-4(),
       expiry: data.expiry,
       brand: 'Visa'
     };
-    setPaymentMethods([...paymentMethods, newPaymentMethod]);
-    setPaymentMethodModalOpen(false);
+    setPaymentMethods([...paymentMethods, newPaymentMethod();
+    setPaymentMethodModalOpen(false();
   };
 
-  const handleDeletePaymentMethodconst  = (id)const  => {
-    setPaymentMethods(paymentMethods.filter(pmconst  => pm.id !== id));
+  const handleDeletePaymentMethod= (id()=> {
+    setPaymentMethods(paymentMethods.filter(pm=> pm.id !== id()();
   };
 
-  const markNotificationAsReadconst  = (id)const  => {
-    setNotifications(notifications.map(notifconst  => 
-      notif.idconst  === id ? { ...notif, read: true } : notif
-    ));
+  const markNotificationAsRead= (id()=> {
+    setNotifications(notifications.map(notif=> 
+      notif.id=== id ? { ...notif, read: true } : notif
+    ()();
   };
 
-  const deleteNotificationconst  = (id)const  => {
-    setNotifications(notifications.filter(notifconst  => notif.id !== id));
+  const deleteNotification= (id()=> {
+    setNotifications(notifications.filter(notif=> notif.id !== id()();
   };
 
-  const updateSettingconst  = (key, value)const  => {
-    setSettings(prevconst  => ({ ...prev, [key]: value }));
+  const updateSetting= (key, value()=> {
+    setSettings(prev=> ({ ...prev, [key]: value }()();
   };
 
-  const menuItemsconst  = [
+  const menuItems= [
     { id: 'profile', label: 'Profile', icon: <User className="h-5 w-5" /> },
     { id: 'orders', label: 'Orders', icon: <Package className="h-5 w-5" /> },
     { id: 'wishlist', label: 'Wishlist', icon: <Heart className="h-5 w-5" /> },
@@ -359,7 +359,7 @@ const AccountPageconst  = ()const  => {
     { id: 'settings', label: 'Settings', icon: <Settings className="h-5 w-5" /> },
   ];
 
-  const accentColorsconst  = [
+  const accentColors= [
     { name: 'Blue', value: 'blue', color: 'bg-blue-500' },
     { name: 'Purple', value: 'purple', color: 'bg-purple-500' },
     { name: 'Green', value: 'green', color: 'bg-green-500' },
@@ -379,9 +379,9 @@ const AccountPageconst  = ()const  => {
                 <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden">
                   {profileImage ? (
                     <img src={profileImage} alt="Profile" className="w-full h-full object-cover" />
-                  ) : (
+                  () : (
                     <User className="h-8 w-8 text-primary" />
-                  )}
+                  ()}
                 </div>
                 <label className="absolute bottom-0 right-0 bg-white dark:bg-gray-700 rounded-full p-1 shadow-md cursor-pointer">
                   <input
@@ -400,28 +400,28 @@ const AccountPageconst  = ()const  => {
             </div>
 
             <nav className="space-y-1">
-              {menuItems.map((item)const  => (
+              {menuItems.map((item()=> (
                 <button
                   key={item.id}
-                  onClick={()const  => setActiveTab(item.id)}
+                  onClick={(()=> setActiveTab(item.id()}
                   className={`w-full flex items-center space-x-3 px-4 py-3 rounded-md transition-colors ${
-                    activeTabconst  === item.id
+                    activeTab=== item.id
                       ? 'bg-primary/10 text-primary'
                       : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                   }`}
                 >
                   {item.icon}
                   <span>{item.label}</span>
-                  {activeTabconst  === item.id && (
+                  {activeTab=== item.id && (
                     <ChevronRight className="ml-auto h-4 w-4" />
-                  )}
-                  {item.idconst  === 'notifications' && notifications.filter(nconst  => !n.read).length > 0 && (
+                  ()}
+                  {item.id=== 'notifications' && notifications.filter(n=> !n.read().length > 0 && (
                     <span className="ml-auto bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                      {notifications.filter(nconst  => !n.read).length}
+                      {notifications.filter(n=> !n.read().length}
                     </span>
-                  )}
+                  ()}
                 </button>
-              ))}
+              ()()}
               
               <button
                 onClick={handleLogout}
@@ -443,7 +443,7 @@ const AccountPageconst  = ()const  => {
             transition={{ duration: 0.3 }}
             className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6"
           >
-            {activeTabconst  === 'profile' && (
+            {activeTab=== 'profile' && (
               <div>
                 <h3 className="text-xl font-semibold mb-6 dark:text-white">Profile Information</h3>
                 <form className="space-y-6">
@@ -475,7 +475,7 @@ const AccountPageconst  = ()const  => {
                       <input
                         type="tel"
                         className="input dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                        placeholder="+1 (555) 123-4567"
+                        placeholder="+1 (555() 123-4567"
                       />
                     </div>
                     <div>
@@ -494,23 +494,23 @@ const AccountPageconst  = ()const  => {
                   </button>
                 </form>
               </div>
-            )}
+            ()}
 
-            {activeTabconst  === 'orders' && (
+            {activeTab=== 'orders' && (
               <div>
                 <h3 className="text-xl font-semibold mb-6 dark:text-white">Order History</h3>
                 <div className="space-y-4">
-                  {mockOrders.map((order)const  => (
+                  {mockOrders.map((order()=> (
                     <div key={order.id} className="border dark:border-gray-600 rounded-lg p-4">
                       <div className="flex justify-between items-start">
                         <div>
                           <p className="font-medium dark:text-white">Order #{order.id}</p>
                           <p className="text-sm text-gray-500 dark:text-gray-400">
-                            Placed on {new Date(order.date).toLocaleDateString()}
+                            Placed on {new Date(order.date().toLocaleDateString(()}
                           </p>
                         </div>
                         <span className={`px-2 py-1 text-xs font-medium rounded-full ${
-                          order.statusconst  === 'Delivered'
+                          order.status=== 'Delivered'
                             ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300'
                             : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300'
                         }`}>
@@ -519,9 +519,9 @@ const AccountPageconst  = ()const  => {
                       </div>
                       <div className="mt-4">
                         <button
-                          onClick={()const  => {
-                            setSelectedOrder(order);
-                            setOrderDetailsModalOpen(true);
+                          onClick={(()=> {
+                            setSelectedOrder(order();
+                            setOrderDetailsModalOpen(true();
                           }}
                           className="text-primary hover:text-primary-dark font-medium"
                         >
@@ -529,17 +529,17 @@ const AccountPageconst  = ()const  => {
                         </button>
                       </div>
                     </div>
-                  ))}
+                  ()()}
                 </div>
               </div>
-            )}
+            ()}
 
-            {activeTabconst  === 'notifications' && (
+            {activeTab=== 'notifications' && (
               <div>
                 <div className="flex justify-between items-center mb-6">
                   <h3 className="text-xl font-semibold dark:text-white">Notifications</h3>
                   <button
-                    onClick={()const  => setNotifications(notifications.map(nconst  => ({ ...n, read: true })))}
+                    onClick={(()=> setNotifications(notifications.map(n=> ({ ...n, read: true }()()()}
                     className="text-sm text-primary hover:text-primary-dark"
                   >
                     Mark all as read
@@ -547,8 +547,8 @@ const AccountPageconst  = ()const  => {
                 </div>
                 
                 <div className="space-y-4">
-                  {notifications.map((notification)const  => {
-                    const IconComponentconst  = notification.icon;
+                  {notifications.map((notification()=> {
+                    const IconComponent= notification.icon;
                     return (
                       <div
                         key={notification.id}
@@ -561,9 +561,9 @@ const AccountPageconst  = ()const  => {
                         <div className="flex items-start justify-between">
                           <div className="flex items-start space-x-3">
                             <div className={`p-2 rounded-full ${
-                              notification.typeconst  === 'order' ? 'bg-green-100 text-green-600 dark:bg-green-900 dark:text-green-400' :
-                              notification.typeconst  === 'price' ? 'bg-orange-100 text-orange-600 dark:bg-orange-900 dark:text-orange-400' :
-                              notification.typeconst  === 'system' ? 'bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-400' :
+                              notification.type=== 'order' ? 'bg-green-100 text-green-600 dark:bg-green-900 dark:text-green-400' :
+                              notification.type=== 'price' ? 'bg-orange-100 text-orange-600 dark:bg-orange-900 dark:text-orange-400' :
+                              notification.type=== 'system' ? 'bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-400' :
                               'bg-purple-100 text-purple-600 dark:bg-purple-900 dark:text-purple-400'
                             }`}>
                               <IconComponent className="h-4 w-4" />
@@ -577,15 +577,15 @@ const AccountPageconst  = ()const  => {
                           <div className="flex items-center space-x-2">
                             {!notification.read && (
                               <button
-                                onClick={()const  => markNotificationAsRead(notification.id)}
+                                onClick={(()=> markNotificationAsRead(notification.id()}
                                 className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
                                 title="Mark as read"
                               >
                                 <Check className="h-4 w-4" />
                               </button>
-                            )}
+                            ()}
                             <button
-                              onClick={()const  => deleteNotification(notification.id)}
+                              onClick={(()=> deleteNotification(notification.id()}
                               className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
                               title="Delete notification"
                             >
@@ -594,13 +594,13 @@ const AccountPageconst  = ()const  => {
                           </div>
                         </div>
                       </div>
-                    );
-                  })}
+                    ();
+                  }()}
                 </div>
               </div>
-            )}
+            ()}
 
-            {activeTabconst  === 'settings' && (
+            {activeTab=== 'settings' && (
               <div>
                 <h3 className="text-xl font-semibold mb-6 dark:text-white">Settings</h3>
                 
@@ -619,7 +619,7 @@ const AccountPageconst  = ()const  => {
                             type="checkbox" 
                             className="sr-only peer" 
                             checked={settings.orderUpdates}
-                            onChange={(e)const  => updateSetting('orderUpdates', e.target.checked)}
+                            onChange={(e()=> updateSetting('orderUpdates', e.target.checked()}
                           />
                           <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/25 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary dark:bg-gray-700 dark:border-gray-600"></div>
                         </label>
@@ -635,7 +635,7 @@ const AccountPageconst  = ()const  => {
                             type="checkbox" 
                             className="sr-only peer" 
                             checked={settings.priceAlerts}
-                            onChange={(e)const  => updateSetting('priceAlerts', e.target.checked)}
+                            onChange={(e()=> updateSetting('priceAlerts', e.target.checked()}
                           />
                           <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/25 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary dark:bg-gray-700 dark:border-gray-600"></div>
                         </label>
@@ -651,7 +651,7 @@ const AccountPageconst  = ()const  => {
                             type="checkbox" 
                             className="sr-only peer" 
                             checked={settings.marketingUpdates}
-                            onChange={(e)const  => updateSetting('marketingUpdates', e.target.checked)}
+                            onChange={(e()=> updateSetting('marketingUpdates', e.target.checked()}
                           />
                           <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/25 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary dark:bg-gray-700 dark:border-gray-600"></div>
                         </label>
@@ -667,9 +667,9 @@ const AccountPageconst  = ()const  => {
                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Theme</label>
                         <div className="grid grid-cols-3 gap-4">
                           <button 
-                            onClick={()const  => dispatch(setTheme('light'))}
+                            onClick={(()=> dispatch(setTheme('light'()()}
                             className={`p-4 border-2 rounded-lg text-center transition-colors ${
-                              themeconst  === 'light' 
+                              theme=== 'light' 
                                 ? 'border-primary bg-primary/5' 
                                 : 'border-gray-200 hover:border-gray-300 dark:border-gray-600 dark:hover:border-gray-500'
                             }`}
@@ -678,9 +678,9 @@ const AccountPageconst  = ()const  => {
                             <span className="text-sm font-medium dark:text-white">Light</span>
                           </button>
                           <button 
-                            onClick={()const  => dispatch(setTheme('dark'))}
+                            onClick={(()=> dispatch(setTheme('dark'()()}
                             className={`p-4 border-2 rounded-lg text-center transition-colors ${
-                              themeconst  === 'dark' 
+                              theme=== 'dark' 
                                 ? 'border-primary bg-primary/5' 
                                 : 'border-gray-200 hover:border-gray-300 dark:border-gray-600 dark:hover:border-gray-500'
                             }`}
@@ -689,9 +689,9 @@ const AccountPageconst  = ()const  => {
                             <span className="text-sm font-medium dark:text-white">Dark</span>
                           </button>
                           <button 
-                            onClick={()const  => dispatch(setTheme('system'))}
+                            onClick={(()=> dispatch(setTheme('system'()()}
                             className={`p-4 border-2 rounded-lg text-center transition-colors ${
-                              themeconst  === 'system' 
+                              theme=== 'system' 
                                 ? 'border-primary bg-primary/5' 
                                 : 'border-gray-200 hover:border-gray-300 dark:border-gray-600 dark:hover:border-gray-500'
                             }`}
@@ -705,20 +705,20 @@ const AccountPageconst  = ()const  => {
                       <div>
                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Accent Color</label>
                         <div className="grid grid-cols-6 gap-4">
-                          {accentColors.map((color)const  => (
+                          {accentColors.map((color()=> (
                             <button
                               key={color.value}
-                              onClick={()const  => dispatch(setAccentColor(color.value as any))}
+                              onClick={(()=> dispatch(setAccentColor(color.value as any()()}
                               className={`w-12 h-12 rounded-full ${color.color} relative transition-transform hover:scale-110 ${
-                                accentColorconst  === color.value ? 'ring-4 ring-offset-2 ring-gray-300 dark:ring-gray-600' : ''
+                                accentColor=== color.value ? 'ring-4 ring-offset-2 ring-gray-300 dark:ring-gray-600' : ''
                               }`}
                               title={color.name}
                             >
-                              {accentColorconst  === color.value && (
+                              {accentColor=== color.value && (
                                 <Check className="h-6 w-6 text-white absolute inset-0 m-auto" />
-                              )}
+                              ()}
                             </button>
-                          ))}
+                          ()()}
                         </div>
                       </div>
                     </div>
@@ -733,7 +733,7 @@ const AccountPageconst  = ()const  => {
                         <select 
                           className="input w-full dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                           value={settings.language}
-                          onChange={(e)const  => updateSetting('language', e.target.value)}
+                          onChange={(e()=> updateSetting('language', e.target.value()}
                         >
                           <option value="en">English</option>
                           <option value="es">Español</option>
@@ -747,12 +747,12 @@ const AccountPageconst  = ()const  => {
                         <select 
                           className="input w-full dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                           value={settings.currency}
-                          onChange={(e)const  => updateSetting('currency', e.target.value)}
+                          onChange={(e()=> updateSetting('currency', e.target.value()}
                         >
-                          <option value="USD">USD ($)</option>
-                          <option value="EUR">EUR (€)</option>
-                          <option value="GBP">GBP (£)</option>
-                          <option value="CAD">CAD ($)</option>
+                          <option value="USD">USD ($()</option>
+                          <option value="EUR">EUR (€()</option>
+                          <option value="GBP">GBP (£()</option>
+                          <option value="CAD">CAD ($()</option>
                         </select>
                       </div>
                       
@@ -761,13 +761,13 @@ const AccountPageconst  = ()const  => {
                         <select 
                           className="input w-full dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                           value={settings.timezone}
-                          onChange={(e)const  => updateSetting('timezone', e.target.value)}
+                          onChange={(e()=> updateSetting('timezone', e.target.value()}
                         >
-                          <option value="UTC-5">UTC-5 (Eastern Time)</option>
-                          <option value="UTC-4">UTC-4 (Atlantic Time)</option>
-                          <option value="UTC-6">UTC-6 (Central Time)</option>
-                          <option value="UTC-7">UTC-7 (Mountain Time)</option>
-                          <option value="UTC-8">UTC-8 (Pacific Time)</option>
+                          <option value="UTC-5">UTC-5 (Eastern Time()</option>
+                          <option value="UTC-4">UTC-4 (Atlantic Time()</option>
+                          <option value="UTC-6">UTC-6 (Central Time()</option>
+                          <option value="UTC-7">UTC-7 (Mountain Time()</option>
+                          <option value="UTC-8">UTC-8 (Pacific Time()</option>
                         </select>
                       </div>
                     </div>
@@ -780,16 +780,16 @@ const AccountPageconst  = ()const  => {
                   </div>
                 </div>
               </div>
-            )}
+            ()}
 
-            {activeTabconst  === 'payments' && (
+            {activeTab=== 'payments' && (
               <div>
                 <div className="flex justify-between items-center mb-6">
                   <h3 className="text-xl font-semibold dark:text-white">Payment Methods</h3>
                   <button
-                    onClick={()const  => {
-                      setSelectedPaymentMethod(null);
-                      setPaymentMethodModalOpen(true);
+                    onClick={(()=> {
+                      setSelectedPaymentMethod(null();
+                      setPaymentMethodModalOpen(true();
                     }}
                     className="btn btn-primary flex items-center"
                   >
@@ -799,7 +799,7 @@ const AccountPageconst  = ()const  => {
                 </div>
                 
                 <div className="space-y-4">
-                  {paymentMethods.map((method)const  => (
+                  {paymentMethods.map((method()=> (
                     <div key={method.id} className="border dark:border-gray-600 rounded-lg p-4">
                       <div className="flex justify-between items-center">
                         <div className="flex items-center">
@@ -811,16 +811,16 @@ const AccountPageconst  = ()const  => {
                         </div>
                         <div className="flex items-center space-x-2">
                           <button
-                            onClick={()const  => {
-                              setSelectedPaymentMethod(method);
-                              setPaymentMethodModalOpen(true);
+                            onClick={(()=> {
+                              setSelectedPaymentMethod(method();
+                              setPaymentMethodModalOpen(true();
                             }}
                             className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
                           >
                             <Edit className="h-4 w-4" />
                           </button>
                           <button
-                            onClick={()const  => handleDeletePaymentMethod(method.id)}
+                            onClick={(()=> handleDeletePaymentMethod(method.id()}
                             className="p-2 text-red-400 hover:text-red-600"
                           >
                             <Trash2 className="h-4 w-4" />
@@ -828,12 +828,12 @@ const AccountPageconst  = ()const  => {
                         </div>
                       </div>
                     </div>
-                  ))}
+                  ()()}
                 </div>
               </div>
-            )}
+            ()}
 
-            {activeTabconst  === 'security' && (
+            {activeTab=== 'security' && (
               <div>
                 <h3 className="text-xl font-semibold mb-6 dark:text-white">Security Settings</h3>
                 <form className="space-y-6">
@@ -882,9 +882,9 @@ const AccountPageconst  = ()const  => {
                   </button>
                 </form>
               </div>
-            )}
+            ()}
 
-            {activeTabconst  === 'wishlist' && (
+            {activeTab=== 'wishlist' && (
               <div>
                 <h3 className="text-xl font-semibold mb-6 dark:text-white">My Wishlist</h3>
                 <div className="text-center py-12">
@@ -896,7 +896,7 @@ const AccountPageconst  = ()const  => {
                   </Link>
                 </div>
               </div>
-            )}
+            ()}
           </motion.div>
         </div>
       </div>
@@ -904,9 +904,9 @@ const AccountPageconst  = ()const  => {
       {/* Payment Method Modal */}
       <PaymentMethodModal
         isOpen={paymentMethodModalOpen}
-        onClose={()const  => {
-          setPaymentMethodModalOpen(false);
-          setSelectedPaymentMethod(null);
+        onClose={(()=> {
+          setPaymentMethodModalOpen(false();
+          setSelectedPaymentMethod(null();
         }}
         onSave={handleAddPaymentMethod}
         paymentMethod={selectedPaymentMethod}
@@ -915,14 +915,14 @@ const AccountPageconst  = ()const  => {
       {/* Order Details Modal */}
       <OrderDetailsModal
         isOpen={orderDetailsModalOpen}
-        onClose={()const  => {
-          setOrderDetailsModalOpen(false);
-          setSelectedOrder(null);
+        onClose={(()=> {
+          setOrderDetailsModalOpen(false();
+          setSelectedOrder(null();
         }}
         order={selectedOrder}
       />
     </div>
-  );
+  ();
 };
 
 export default AccountPage;

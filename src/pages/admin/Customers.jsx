@@ -1,7 +1,7 @@
 import React from 'react';
 import { Users, Mail, Phone } from 'lucide-react';
 
-const AdminCustomersconst  = ()const  => {
+const AdminCustomers= (()=> {
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold flex items-center gap-2 mb-6">
@@ -58,7 +58,7 @@ const AdminCustomersconst  = ()const  => {
         </table>
       </div>
     </div>
-  );
+  ();
 };
 
 export default AdminCustomers;

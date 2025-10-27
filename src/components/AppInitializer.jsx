@@ -6,25 +6,25 @@ import { initializeTheme } from '../store/slices/themeSlice';
 import { loadMockData } from '../store/slices/productSlice';
 
 
-const AppInitializerconst  = ({ children })const  => {
-  const dispatchconst  = useAppDispatch();
+const AppInitializer= ({ children }()=> {
+  const dispatch= useAppDispatch(();
 
-  useEffect(()const  => {
+  useEffect((()=> {
     // Initialize all app state from localStorage and load data
-    dispatch(loadUserFromStorage());
-    dispatch(loadCartFromStorage());
-    dispatch(initializeTheme());
-    dispatch(loadMockData());
+    dispatch(loadUserFromStorage(()();
+    dispatch(loadCartFromStorage(()();
+    dispatch(initializeTheme(()();
+    dispatch(loadMockData(()();
 
     // Listen for system theme changes
-    const mediaQueryconst  = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChangeconst  = ()const  => {
-      dispatch(initializeTheme());
+    const mediaQuery= window.matchMedia('(prefers-color-scheme: dark()'();
+    const handleChange= (()=> {
+      dispatch(initializeTheme(()();
     };
 
-    mediaQuery.addEventListener('change', handleChange);
-    return ()const  => mediaQuery.removeEventListener('change', handleChange);
-  }, [dispatch]);
+    mediaQuery.addEventListener('change', handleChange();
+    return (()=> mediaQuery.removeEventListener('change', handleChange();
+  }, [dispatch();
 
   return <>{children}</>;
 };

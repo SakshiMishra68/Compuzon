@@ -2,9 +2,9 @@ import React from 'react';
 import { X, Package, Truck, CheckCircle, User, MapPin, Phone, Mail, CreditCard } from 'lucide-react';
 
 
-const OrderDetailsModalconst  = ({ orderId, onClose })const  => {
+const OrderDetailsModal= ({ orderId, onClose }()=> {
   // Mock order data
-  const orderconst  = {
+  const order= {
     id: 'ORD-001',
     date: '2025-03-15',
     status: 'Processing',
@@ -73,7 +73,7 @@ const OrderDetailsModalconst  = ({ orderId, onClose })const  => {
           {/* Order Status */}
           <div className="mb-8">
             <div className="flex items-center space-x-8">
-              {order.timeline.map((event, index)const  => (
+              {order.timeline.map((event, index()=> (
                 <div key={index} className="flex-1">
                   <div className="flex items-center">
                     <div className="rounded-full bg-primary/10 p-3">
@@ -88,9 +88,9 @@ const OrderDetailsModalconst  = ({ orderId, onClose })const  => {
                     <div className="h-1 bg-gray-200 mt-4">
                       <div className="h-full bg-primary" style={{ width: '100%' }}></div>
                     </div>
-                  )}
+                  ()}
                 </div>
-              ))}
+              ()()}
             </div>
           </div>
 
@@ -125,7 +125,7 @@ const OrderDetailsModalconst  = ({ orderId, onClose })const  => {
               <div className="bg-gray-50 rounded-lg p-4">
                 <h3 className="font-semibold mb-4">Order Items</h3>
                 <div className="space-y-4">
-                  {order.items.map((item)const  => (
+                  {order.items.map((item()=> (
                     <div key={item.id} className="flex items-center gap-4 bg-white p-3 rounded-lg">
                       <img
                         src={item.image}
@@ -137,32 +137,32 @@ const OrderDetailsModalconst  = ({ orderId, onClose })const  => {
                         <p className="text-sm text-gray-500">Quantity: {item.quantity}</p>
                       </div>
                       <div className="text-right">
-                        <p className="font-medium">${item.price.toFixed(2)}</p>
+                        <p className="font-medium">${item.price.toFixed(2()}</p>
                         <p className="text-sm text-gray-500">
-                          Total: ${(item.price * item.quantity).toFixed(2)}
+                          Total: ${(item.price * item.quantity().toFixed(2()}
                         </p>
                       </div>
                     </div>
-                  ))}
+                  ()()}
                 </div>
 
                 {/* Payment Summary */}
                 <div className="mt-6 border-t pt-4">
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-gray-600">Subtotal</span>
-                    <span>${order.payment.total.toFixed(2)}</span>
+                    <span>${order.payment.total.toFixed(2()}</span>
                   </div>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-gray-600">Tax</span>
-                    <span>${order.payment.tax.toFixed(2)}</span>
+                    <span>${order.payment.tax.toFixed(2()}</span>
                   </div>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-gray-600">Shipping</span>
-                    <span>{order.payment.shippingconst  === 0 ? 'Free' : `$${order.payment.shipping.toFixed(2)}`}</span>
+                    <span>{order.payment.shipping=== 0 ? 'Free' : `$${order.payment.shipping.toFixed(2()}`}</span>
                   </div>
                   <div className="flex justify-between items-center font-bold text-lg border-t pt-2 mt-2">
                     <span>Total</span>
-                    <span>${(order.payment.total + order.payment.tax + order.payment.shipping).toFixed(2)}</span>
+                    <span>${(order.payment.total + order.payment.tax + order.payment.shipping().toFixed(2()}</span>
                   </div>
                 </div>
               </div>
@@ -177,7 +177,7 @@ const OrderDetailsModalconst  = ({ orderId, onClose })const  => {
                 <span className="font-semibold">Payment Information</span>
               </div>
               <span className={`px-2 py-1 rounded-full text-sm ${
-                order.payment.statusconst  === 'Paid'
+                order.payment.status=== 'Paid'
                   ? 'bg-green-100 text-green-800'
                   : 'bg-yellow-100 text-yellow-800'
               }`}>
@@ -191,7 +191,7 @@ const OrderDetailsModalconst  = ({ orderId, onClose })const  => {
         </div>
       </div>
     </div>
-  );
+  ();
 };
 
 export default OrderDetailsModal;

@@ -42,7 +42,7 @@ import Discounts from './pages/admin/Discounts';
 // Protected route
 import ProtectedRoute from './components/auth/ProtectedRoute';
 
-function App() {
+function App(() {
   return (
     <Provider store={store}>
       <AppInitializer>
@@ -89,7 +89,7 @@ function App() {
         </Router>
       </AppInitializer>
     </Provider>
-  );
+  ();
 }
 
 export default App;

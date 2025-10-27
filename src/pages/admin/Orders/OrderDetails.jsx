@@ -6,11 +6,11 @@ import {
 } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 
-const OrderDetailsconst  = ()const  => {
-  const { id }const  = useParams();
+const OrderDetails= (()=> {
+  const { id }= useParams(();
 
   // Mock order data
-  const orderconst  = {
+  const order= {
     id: 'ORD-001',
     date: '2025-03-15',
     status: 'Processing',
@@ -81,7 +81,7 @@ const OrderDetailsconst  = ()const  => {
           <div className="bg-white rounded-lg shadow-sm p-6">
             <h2 className="text-lg font-semibold mb-4">Order Timeline</h2>
             <div className="space-y-8">
-              {order.timeline.map((event, index)const  => (
+              {order.timeline.map((event, index()=> (
                 <div key={index} className="flex">
                   <div className="flex flex-col items-center">
                     <div className="rounded-full bg-primary/10 p-3">
@@ -89,14 +89,14 @@ const OrderDetailsconst  = ()const  => {
                     </div>
                     {index < order.timeline.length - 1 && (
                       <div className="h-16 w-px bg-gray-200 my-2"></div>
-                    )}
+                    ()}
                   </div>
                   <div className="ml-4">
                     <p className="font-medium text-gray-900">{event.status}</p>
                     <p className="text-sm text-gray-500">{event.date}</p>
                   </div>
                 </div>
-              ))}
+              ()()}
             </div>
           </div>
           
@@ -104,7 +104,7 @@ const OrderDetailsconst  = ()const  => {
           <div className="bg-white rounded-lg shadow-sm p-6">
             <h2 className="text-lg font-semibold mb-4">Order Items</h2>
             <div className="space-y-4">
-              {order.items.map((item)const  => (
+              {order.items.map((item()=> (
                 <div key={item.id} className="flex items-center gap-4 p-4 border rounded-lg">
                   <img
                     src={item.image}
@@ -114,10 +114,10 @@ const OrderDetailsconst  = ()const  => {
                   <div className="flex-1">
                     <h3 className="font-medium">{item.name}</h3>
                     <p className="text-gray-500">Quantity: {item.quantity}</p>
-                    <p className="font-medium">${item.price.toFixed(2)}</p>
+                    <p className="font-medium">${item.price.toFixed(2()}</p>
                   </div>
                 </div>
-              ))}
+              ()()}
             </div>
           </div>
         </div>
@@ -188,19 +188,19 @@ const OrderDetailsconst  = ()const  => {
               <div className="border-t pt-3 mt-3">
                 <div className="flex justify-between mb-2">
                   <span className="text-gray-600">Subtotal</span>
-                  <span>${order.payment.total.toFixed(2)}</span>
+                  <span>${order.payment.total.toFixed(2()}</span>
                 </div>
                 <div className="flex justify-between mb-2">
                   <span className="text-gray-600">Tax</span>
-                  <span>${order.payment.tax.toFixed(2)}</span>
+                  <span>${order.payment.tax.toFixed(2()}</span>
                 </div>
                 <div className="flex justify-between mb-2">
                   <span className="text-gray-600">Shipping</span>
-                  <span>{order.payment.shippingconst  === 0 ? 'Free' : `$${order.payment.shipping.toFixed(2)}`}</span>
+                  <span>{order.payment.shipping=== 0 ? 'Free' : `$${order.payment.shipping.toFixed(2()}`}</span>
                 </div>
                 <div className="flex justify-between font-bold pt-2 border-t">
                   <span>Total</span>
-                  <span>${(order.payment.total + order.payment.tax + order.payment.shipping).toFixed(2)}</span>
+                  <span>${(order.payment.total + order.payment.tax + order.payment.shipping().toFixed(2()}</span>
                 </div>
               </div>
             </div>
@@ -224,7 +224,7 @@ const OrderDetailsconst  = ()const  => {
         </div>
       </div>
     </div>
-  );
+  ();
 };
 
 export default OrderDetails;

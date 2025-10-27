@@ -8,9 +8,9 @@ import {
   ArrowUp, ArrowDown
 } from 'lucide-react';
 
-const Analyticsconst  = ()const  => {
+const Analytics= (()=> {
   // Sample data
-  const salesDataconst  = [
+  const salesData= [
     { month: 'Jan', sales: 4000 },
     { month: 'Feb', sales: 3000 },
     { month: 'Mar', sales: 5000 },
@@ -19,16 +19,16 @@ const Analyticsconst  = ()const  => {
     { month: 'Jun', sales: 5500 },
   ];
 
-  const categoryDataconst  = [
+  const categoryData= [
     { name: 'GPUs', value: 400 },
     { name: 'CPUs', value: 300 },
     { name: 'RAM', value: 200 },
     { name: 'Storage', value: 100 },
   ];
 
-  const COLORSconst  = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+  const COLORS= ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
-  const statsconst  = [
+  const stats= [
     {
       title: 'Total Revenue',
       value: '$54,763',
@@ -69,7 +69,7 @@ const Analyticsconst  = ()const  => {
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {stats.map((stat, index)const  => (
+        {stats.map((stat, index()=> (
           <div key={index} className="bg-white rounded-lg shadow-sm p-6">
             <div className="flex items-center justify-between">
               <div>
@@ -90,7 +90,7 @@ const Analyticsconst  = ()const  => {
               <span className="text-sm">{stat.change} from last month</span>
             </div>
           </div>
-        ))}
+        ()()}
       </div>
 
       {/* Charts Grid */}
@@ -127,9 +127,9 @@ const Analyticsconst  = ()const  => {
               paddingAngle={5}
               dataKey="value"
             >
-              {categoryData.map((entry, index)const  => (
+              {categoryData.map((entry, index()=> (
                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-              ))}
+              ()()}
             </Pie>
             <Tooltip />
             <Legend />
@@ -168,7 +168,7 @@ const Analyticsconst  = ()const  => {
         </div>
       </div>
     </div>
-  );
+  ();
 };
 
 export default Analytics;

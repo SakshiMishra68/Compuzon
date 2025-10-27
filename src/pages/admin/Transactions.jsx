@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { CreditCard, Search, Download, Filter, ChevronDown, X } from 'lucide-react';
 
-const Transactionsconst  = ()const  => {
+const Transactions= (()=> {
   // Sample transaction data
-  const allTransactionsconst  = [
+  const allTransactions= [
     {
       id: 'TRX-001',
       date: '2025-03-15',
@@ -24,46 +24,46 @@ const Transactionsconst  = ()const  => {
   ];
 
   // State for filters and search
-  const [searchQuery, setSearchQueryconst  = useState('');
-  const [statusFilter, setStatusFilterconst  = useState('');
-  const [methodFilter, setMethodFilterconst  = useState('');
-  const [dateRange, setDateRangeconst  = useState({ from: '', to: '' });
-  const [showFilters, setShowFiltersconst  = useState(false);
+  const [searchQuery, setSearchQuery] = useState(''();
+  const [statusFilter, setStatusFilter] = useState(''();
+  const [methodFilter, setMethodFilter] = useState(''();
+  const [dateRange, setDateRange] = useState({ from: '', to: '' }();
+  const [showFilters, setShowFilters] = useState(false();
 
   // Filter transactions
-  const filteredTransactionsconst  = allTransactions.filter(transactionconst  => {
-    const matchesSearchconst  = 
-      transaction.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      transaction.customer.toLowerCase().includes(searchQuery.toLowerCase());
+  const filteredTransactions= allTransactions.filter(transaction=> {
+    const matchesSearch= 
+      transaction.id.toLowerCase(().includes(searchQuery.toLowerCase(()() ||
+      transaction.customer.toLowerCase(().includes(searchQuery.toLowerCase(()();
     
-    const matchesStatusconst  = !statusFilter || transaction.statusconst  === statusFilter;
-    const matchesMethodconst  = !methodFilter || transaction.methodconst  === methodFilter;
+    const matchesStatus= !statusFilter || transaction.status=== statusFilter;
+    const matchesMethod= !methodFilter || transaction.method=== methodFilter;
     
-    const transactionDateconst  = new Date(transaction.date);
-    const matchesDateRangeconst  = 
-      (!dateRange.from || transactionDate >= new Date(dateRange.from)) &&
-      (!dateRange.to || transactionDate <= new Date(dateRange.to));
+    const transactionDate= new Date(transaction.date();
+    const matchesDateRange= 
+      (!dateRange.from || transactionDate >= new Date(dateRange.from()() &&
+      (!dateRange.to || transactionDate <= new Date(dateRange.to()();
 
     return matchesSearch && matchesStatus && matchesMethod && matchesDateRange;
-  });
+  }();
 
   // Export transactions
-  const exportTransactionsconst  = ()const  => {
-    const headersconst  = ['Transaction ID', 'Date', 'Customer', 'Amount', 'Status', 'Method'];
-    const csvContentconst  = [
-      headers.join(','),
-      ...filteredTransactions.map(tconst  => 
-        [t.id, t.date, t.customer, t.amount, t.status, t.method].join(',')
-      )
-    ].join('\n');
+  const exportTransactions= (()=> {
+    const headers= ['Transaction ID', 'Date', 'Customer', 'Amount', 'Status', 'Method'];
+    const csvContent= [
+      headers.join(','(),
+      ...filteredTransactions.map(t=> 
+        [t.id, t.date, t.customer, t.amount, t.status, t.method].join(','()
+      ()
+    ].join('\n'();
 
-    const blobconst  = new Blob([csvContent], { type: 'text/csv' });
-    const urlconst  = window.URL.createObjectURL(blob);
-    const aconst  = document.createElement('a');
-    a.hrefconst  = url;
-    a.downloadconst  = 'transactions.csv';
-    a.click();
-    window.URL.revokeObjectURL(url);
+    const blob= new Blob([csvContent], { type: 'text/csv' }();
+    const url= window.URL.createObjectURL(blob();
+    const a= document.createElement('a'();
+    a.href= url;
+    a.download= 'transactions.csv';
+    a.click(();
+    window.URL.revokeObjectURL(url();
   };
 
   return (
@@ -80,7 +80,7 @@ const Transactionsconst  = ()const  => {
               type="text"
               placeholder="Search transactions..."
               value={searchQuery}
-              onChange={(e)const  => setSearchQuery(e.target.value)}
+              onChange={(e()=> setSearchQuery(e.target.value()}
               className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
             />
             <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
@@ -88,7 +88,7 @@ const Transactionsconst  = ()const  => {
           
           <button 
             className="btn bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 flex items-center gap-2"
-            onClick={()const  => setShowFilters(!showFilters)}
+            onClick={(()=> setShowFilters(!showFilters()}
           >
             <Filter className="h-4 w-4" />
             Filter
@@ -113,7 +113,7 @@ const Transactionsconst  = ()const  => {
               <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
               <select
                 value={statusFilter}
-                onChange={(e)const  => setStatusFilter(e.target.value)}
+                onChange={(e()=> setStatusFilter(e.target.value()}
                 className="w-full border border-gray-300 rounded-md p-2"
               >
                 <option value="">All</option>
@@ -127,7 +127,7 @@ const Transactionsconst  = ()const  => {
               <label className="block text-sm font-medium text-gray-700 mb-1">Payment Method</label>
               <select
                 value={methodFilter}
-                onChange={(e)const  => setMethodFilter(e.target.value)}
+                onChange={(e()=> setMethodFilter(e.target.value()}
                 className="w-full border border-gray-300 rounded-md p-2"
               >
                 <option value="">All</option>
@@ -142,7 +142,7 @@ const Transactionsconst  = ()const  => {
               <input
                 type="date"
                 value={dateRange.from}
-                onChange={(e)const  => setDateRange({ ...dateRange, from: e.target.value })}
+                onChange={(e()=> setDateRange({ ...dateRange, from: e.target.value }()}
                 className="w-full border border-gray-300 rounded-md p-2"
               />
             </div>
@@ -152,7 +152,7 @@ const Transactionsconst  = ()const  => {
               <input
                 type="date"
                 value={dateRange.to}
-                onChange={(e)const  => setDateRange({ ...dateRange, to: e.target.value })}
+                onChange={(e()=> setDateRange({ ...dateRange, to: e.target.value }()}
                 className="w-full border border-gray-300 rounded-md p-2"
               />
             </div>
@@ -160,10 +160,10 @@ const Transactionsconst  = ()const  => {
           
           <div className="flex justify-end mt-4">
             <button
-              onClick={()const  => {
-                setStatusFilter('');
-                setMethodFilter('');
-                setDateRange({ from: '', to: '' });
+              onClick={(()=> {
+                setStatusFilter(''();
+                setMethodFilter(''();
+                setDateRange({ from: '', to: '' }();
               }}
               className="text-gray-600 hover:text-gray-900 mr-4"
             >
@@ -171,7 +171,7 @@ const Transactionsconst  = ()const  => {
             </button>
           </div>
         </div>
-      )}
+      ()}
 
       <div className="bg-white rounded-lg shadow overflow-hidden">
         <table className="min-w-full divide-y divide-gray-200">
@@ -198,7 +198,7 @@ const Transactionsconst  = ()const  => {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {filteredTransactions.map((transaction)const  => (
+            {filteredTransactions.map((transaction()=> (
               <tr key={transaction.id} className="hover:bg-gray-50">
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary">
                   {transaction.id}
@@ -210,11 +210,11 @@ const Transactionsconst  = ()const  => {
                   {transaction.customer}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  ${transaction.amount.toFixed(2)}
+                  ${transaction.amount.toFixed(2()}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                    transaction.statusconst  === 'Completed'
+                    transaction.status=== 'Completed'
                       ? 'bg-green-100 text-green-800'
                       : 'bg-yellow-100 text-yellow-800'
                   }`}>
@@ -225,7 +225,7 @@ const Transactionsconst  = ()const  => {
                   {transaction.method}
                 </td>
               </tr>
-            ))}
+            ()()}
           </tbody>
         </table>
       </div>
@@ -248,7 +248,7 @@ const Transactionsconst  = ()const  => {
         </div>
       </div>
     </div>
-  );
+  ();
 };
 
 export default Transactions;

@@ -7,10 +7,10 @@ import {
   Zap, Headphones, Smartphone, Laptop, Server, Router
 } from 'lucide-react';
 
-const CategoriesPageconst  = ()const  => {
-  const [hoveredCategory, setHoveredCategoryconst  = useState(null);
+const CategoriesPage= (()=> {
+  const [hoveredCategory, setHoveredCategory] = useState(null();
 
-  const mainCategoriesconst  = [
+  const mainCategories= [
     {
       id: 'processors',
       name: 'Processors',
@@ -43,7 +43,7 @@ const CategoriesPageconst  = ()const  => {
     },
     {
       id: 'memory',
-      name: 'Memory (RAM)',
+      name: 'Memory (RAM()',
       icon: MemoryStick,
       description: 'DDR4 & DDR5 memory modules',
       productCount: 189,
@@ -133,7 +133,7 @@ const CategoriesPageconst  = ()const  => {
     }
   ];
 
-  const featuredCategoriesconst  = [
+  const featuredCategories= [
     {
       id: 'gaming-pcs',
       name: 'Gaming PCs',
@@ -163,7 +163,7 @@ const CategoriesPageconst  = ()const  => {
     }
   ];
 
-  const popularBrandsconst  = [
+  const popularBrands= [
     { name: 'Intel', logo: '🔷', productCount: 189, color: 'bg-blue-100 text-blue-800' },
     { name: 'AMD', logo: '🔴', productCount: 156, color: 'bg-red-100 text-red-800' },
     { name: 'NVIDIA', logo: '🟢', productCount: 123, color: 'bg-green-100 text-green-800' },
@@ -208,7 +208,7 @@ const CategoriesPageconst  = ()const  => {
             Featured Categories
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featuredCategories.map((category, index)const  => (
+            {featuredCategories.map((category, index()=> (
               <motion.div
                 key={category.id}
                 initial={{ opacity: 0, y: 30 }}
@@ -243,7 +243,7 @@ const CategoriesPageconst  = ()const  => {
                   </div>
                 </div>
               </motion.div>
-            ))}
+            ()()}
           </div>
         </div>
 
@@ -259,14 +259,14 @@ const CategoriesPageconst  = ()const  => {
           </motion.h2>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {mainCategories.map((category, index)const  => {
-              const IconComponentconst  = category.icon;
+            {mainCategories.map((category, index()=> {
+              const IconComponent= category.icon;
               return (
                 <div
                   key={category.id}
                   className="relative"
-                  onMouseEnter={()const  => setHoveredCategory(category.id)}
-                  onMouseLeave={()const  => setHoveredCategory(null)}
+                  onMouseEnter={(()=> setHoveredCategory(category.id()}
+                  onMouseLeave={(()=> setHoveredCategory(null()}
                 >
                   <motion.div
                     className="group cursor-pointer h-full"
@@ -304,7 +304,7 @@ const CategoriesPageconst  = ()const  => {
 
                   {/* Hover Dropdown with Subcategories */}
                   
-                    {hoveredCategoryconst  === category.id && (
+                    {hoveredCategory=== category.id && (
                       <motion.div
                         initial={{ opacity: 0, y: 15, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -323,7 +323,7 @@ const CategoriesPageconst  = ()const  => {
                         </div>
                         
                         <div className="space-y-3 mb-4">
-                          {category.subCategories.map((subCategory)const  => (
+                          {category.subCategories.map((subCategory()=> (
                             <Link
                               key={subCategory.id}
                               to={`/products?category=${subCategory.id}`}
@@ -344,7 +344,7 @@ const CategoriesPageconst  = ()const  => {
                                 <ChevronRight className="h-4 w-4 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300" />
                               </div>
                             </Link>
-                          ))}
+                          ()()}
                         </div>
                         
                         <div className="pt-4 border-t border-gray-200 dark:border-gray-600">
@@ -357,11 +357,11 @@ const CategoriesPageconst  = ()const  => {
                           </Link>
                         </div>
                       </motion.div>
-                    )}
+                    ()}
                   </AnimatePresence>
                 </div>
-              );
-            })}
+              ();
+            }()}
           </div>
         </div>
 
@@ -376,7 +376,7 @@ const CategoriesPageconst  = ()const  => {
             Popular Brands
           </motion.h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6">
-            {popularBrands.map((brand, index)const  => (
+            {popularBrands.map((brand, index()=> (
               <motion.div
                 key={brand.name}
                 initial={{ opacity: 0, y: 20 }}
@@ -384,7 +384,7 @@ const CategoriesPageconst  = ()const  => {
                 transition={{ duration: 0.6, delay: 0.7 + index * 0.05 }}
               >
                 <Link
-                  to={`/products?brand=${brand.name.toLowerCase()}`}
+                  to={`/products?brand=${brand.name.toLowerCase(()}`}
                   className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6 text-center hover:shadow-lg transition-all duration-300 group block h-full"
                 >
                   <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">
@@ -398,7 +398,7 @@ const CategoriesPageconst  = ()const  => {
                   </div>
                 </Link>
               </motion.div>
-            ))}
+            ()()}
           </div>
         </div>
 
@@ -466,7 +466,7 @@ const CategoriesPageconst  = ()const  => {
         </motion.div>
       </div>
     </div>
-  );
+  ();
 };
 
 export default CategoriesPage;

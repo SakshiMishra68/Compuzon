@@ -3,22 +3,22 @@ import { X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 
-const DiscountModalconst  = ({
+const DiscountModal= ({
   isOpen,
   onClose,
   onSave,
   discount
-})const  => {
-  const handleSubmitconst  = (e)const  => {
-    e.preventDefault();
-    const formDataconst  = new FormData(e.target);
-    const discountDataconst  = {
-      discountName: formData.get('discountName'),
-      discountPercent: Number(formData.get('discountPercent')),
-      startDate: formData.get('startDate'),
-      endDate: formData.get('endDate'),
+}()=> {
+  const handleSubmit= (e()=> {
+    e.preventDefault(();
+    const formData= new FormData(e.target();
+    const discountData= {
+      discountName: formData.get('discountName'(),
+      discountPercent: Number(formData.get('discountPercent'()(),
+      startDate: formData.get('startDate'(),
+      endDate: formData.get('endDate'(),
     };
-    onSave(discountData);
+    onSave(discountData();
   };
 
   return (
@@ -129,9 +129,9 @@ const DiscountModalconst  = ({
             </div>
           </motion.div>
         </>
-      )}
+      ()}
     </AnimatePresence>
-  );
+  ();
 };
 
 export default DiscountModal;

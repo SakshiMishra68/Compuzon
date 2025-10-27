@@ -1,8 +1,8 @@
 import React from 'react';
 import { HelpCircle, MessageSquare, Phone, Mail, ExternalLink } from 'lucide-react';
 
-const Supportconst  = ()const  => {
-  const supportTicketsconst  = [
+const Support= (()=> {
+  const supportTickets= [
     {
       id: 'TICKET-001',
       customer: 'John Doe',
@@ -107,7 +107,7 @@ const Supportconst  = ()const  => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {supportTickets.map((ticket)const  => (
+              {supportTickets.map((ticket()=> (
                 <tr key={ticket.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary">
                     {ticket.id}
@@ -120,7 +120,7 @@ const Supportconst  = ()const  => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                      ticket.statusconst  === 'Open'
+                      ticket.status=== 'Open'
                         ? 'bg-green-100 text-green-800'
                         : 'bg-yellow-100 text-yellow-800'
                     }`}>
@@ -129,7 +129,7 @@ const Supportconst  = ()const  => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                      ticket.priorityconst  === 'High'
+                      ticket.priority=== 'High'
                         ? 'bg-red-100 text-red-800'
                         : 'bg-blue-100 text-blue-800'
                     }`}>
@@ -145,7 +145,7 @@ const Supportconst  = ()const  => {
                     </button>
                   </td>
                 </tr>
-              ))}
+              ()()}
             </tbody>
           </table>
         </div>
@@ -179,7 +179,7 @@ const Supportconst  = ()const  => {
               <div>
                 <h3 className="font-medium">Phone Support</h3>
                 <p className="text-sm text-gray-500 mt-1">Available Mon-Fri, 9AM-6PM EST</p>
-                <p className="text-primary font-medium mt-2">+1 (800) 123-4567</p>
+                <p className="text-primary font-medium mt-2">+1 (800() 123-4567</p>
               </div>
             </div>
             <div className="flex items-start p-4 border border-gray-200 rounded-lg">
@@ -204,7 +204,7 @@ const Supportconst  = ()const  => {
         </div>
       </div>
     </div>
-  );
+  ();
 };
 
 export default Support;

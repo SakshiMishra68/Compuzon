@@ -10,27 +10,27 @@ import {
 import { useAppSelector, useAppDispatch } from '../../store/hooks';
 import { logout } from '../../store/slices/authSlice';
 
-const AdminLayoutconst  = ()const  => {
-  const [sidebarOpen, setSidebarOpenconst  = useState(false);
-  const locationconst  = useLocation();
-  const dispatchconst  = useAppDispatch();
-  const { isAuthenticated, user }const  = useAppSelector((state)const  => state.auth);
+const AdminLayout= (()=> {
+  const [sidebarOpen, setSidebarOpen] = useState(false();
+  const location= useLocation(();
+  const dispatch= useAppDispatch(();
+  const { isAuthenticated, user }= useAppSelector((state()=> state.auth();
   
-  const isAdminconst  = user?.roleconst  === 'admin';
+  const isAdmin= user?.role=== 'admin';
   
-  const handleLogoutconst  = ()const  => {
-    dispatch(logout());
+  const handleLogout= (()=> {
+    dispatch(logout(()();
   };
 
-  if (!isAuthenticated || !isAdmin) {
+  if (!isAuthenticated || !isAdmin() {
     return <Navigate to="/login" replace />;
   }
 
-  const isActiveLinkconst  = (path)const  => {
-    return location.pathnameconst  === path;
+  const isActiveLink= (path()=> {
+    return location.pathname=== path;
   };
 
-  const navigationItemsconst  = [
+  const navigationItems= [
     { name: 'Dashboard', icon: <LayoutDashboard size={20} />, href: '/admin' },
     { name: 'Products', icon: <Package size={20} />, href: '/admin/products' },
     { name: 'Categories', icon: <FolderTree size={20} />, href: '/admin/categories' },
@@ -55,25 +55,25 @@ const AdminLayoutconst  = ()const  => {
           </Link>
         </div>
         <nav className="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
-          {navigationItems.map((item)const  => (
+          {navigationItems.map((item()=> (
             <Link
               key={item.name}
               to={item.href}
               className={`flex items-center px-4 py-3 text-sm font-medium rounded-md ${
-                isActiveLink(item.href)
+                isActiveLink(item.href()
                   ? 'bg-primary/10 text-primary'
                   : 'text-gray-700 hover:bg-gray-100'
               } transition-colors`}
             >
-              <span className={`mr-3 ${isActiveLink(item.href) ? 'text-primary' : 'text-gray-500'}`}>
+              <span className={`mr-3 ${isActiveLink(item.href() ? 'text-primary' : 'text-gray-500'}`}>
                 {item.icon}
               </span>
               {item.name}
-              {isActiveLink(item.href) && (
+              {isActiveLink(item.href() && (
                 <ChevronRight className="ml-auto h-4 w-4 text-primary" />
-              )}
+              ()}
             </Link>
-          ))}
+          ()()}
         </nav>
         <div className="p-4 border-t border-gray-200">
           <button
@@ -94,9 +94,9 @@ const AdminLayoutconst  = ()const  => {
         {sidebarOpen && (
           <div
             className="fixed inset-0 bg-gray-800 bg-opacity-50 z-40"
-            onClick={()const  => setSidebarOpen(false)}
+            onClick={(()=> setSidebarOpen(false()}
           ></div>
-        )}
+        ()}
 
         <motion.aside
           initial={{ x: '-100%' }}
@@ -110,39 +110,39 @@ const AdminLayoutconst  = ()const  => {
               <span className="text-secondary font-bold text-xl ml-1">Admin</span>
             </Link>
             <button
-              onClick={()const  => setSidebarOpen(false)}
+              onClick={(()=> setSidebarOpen(false()}
               className="p-2 text-gray-500 rounded-md hover:bg-gray-100"
             >
               <X className="h-5 w-5" />
             </button>
           </div>
           <nav className="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
-            {navigationItems.map((item)const  => (
+            {navigationItems.map((item()=> (
               <Link
                 key={item.name}
                 to={item.href}
                 className={`flex items-center px-4 py-3 text-sm font-medium rounded-md ${
-                  isActiveLink(item.href)
+                  isActiveLink(item.href()
                     ? 'bg-primary/10 text-primary'
                     : 'text-gray-700 hover:bg-gray-100'
                 } transition-colors`}
-                onClick={()const  => setSidebarOpen(false)}
+                onClick={(()=> setSidebarOpen(false()}
               >
-                <span className={`mr-3 ${isActiveLink(item.href) ? 'text-primary' : 'text-gray-500'}`}>
+                <span className={`mr-3 ${isActiveLink(item.href() ? 'text-primary' : 'text-gray-500'}`}>
                   {item.icon}
                 </span>
                 {item.name}
-                {isActiveLink(item.href) && (
+                {isActiveLink(item.href() && (
                   <ChevronRight className="ml-auto h-4 w-4 text-primary" />
-                )}
+                ()}
               </Link>
-            ))}
+            ()()}
           </nav>
           <div className="p-4 border-t border-gray-200">
             <button
-              onClick={()const  => {
-                setSidebarOpen(false);
-                handleLogout();
+              onClick={(()=> {
+                setSidebarOpen(false();
+                handleLogout(();
               }}
               className="flex items-center w-full px-4 py-3 text-sm font-medium text-red-600 rounded-md hover:bg-red-50 transition-colors"
             >
@@ -152,7 +152,7 @@ const AdminLayoutconst  = ()const  => {
             <Link 
               to="/" 
               className="flex items-center mt-4 text-sm font-medium text-gray-600 hover:text-primary transition-colors"
-              onClick={()const  => setSidebarOpen(false)}
+              onClick={(()=> setSidebarOpen(false()}
             >
               <span>Back to Website</span>
             </Link>
@@ -165,13 +165,13 @@ const AdminLayoutconst  = ()const  => {
         <header className="bg-white shadow">
           <div className="px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
             <button
-              onClick={()const  => setSidebarOpen(true)}
+              onClick={(()=> setSidebarOpen(true()}
               className="md:hidden p-2 text-gray-500 rounded-md hover:bg-gray-100"
             >
               <Menu className="h-6 w-6" />
             </button>
             <h1 className="text-xl font-semibold text-gray-900">
-              {navigationItems.find((item)const  => isActiveLink(item.href))?.name || 'Admin Dashboard'}
+              {navigationItems.find((item()=> isActiveLink(item.href()()?.name || 'Admin Dashboard'}
             </h1>
             <div className="md:hidden">
               <Link to="/" className="text-gray-500">
@@ -185,7 +185,7 @@ const AdminLayoutconst  = ()const  => {
         </main>
       </div>
     </div>
-  );
+  ();
 };
 
 export default AdminLayout;

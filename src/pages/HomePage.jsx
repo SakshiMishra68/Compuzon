@@ -5,12 +5,12 @@ import { ArrowRight, Truck, ShieldCheck, CreditCard, Clock } from 'lucide-react'
 import { useAppSelector } from '../store/hooks';
 import ProductCard from '../components/product/ProductCard';
 
-const HomePageconst  = ()const  => {
-  const { products, categories, loading }const  = useAppSelector((state)const  => state.products);
-  const featuredProductsconst  = products.filter(pconst  => p.featured);
+const HomePage= (()=> {
+  const { products, categories, loading }= useAppSelector((state()=> state.products();
+  const featuredProducts= products.filter(p=> p.featured();
 
   // Animation variants
-  const staggerContainerconst  = {
+  const staggerContainer= {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -20,7 +20,7 @@ const HomePageconst  = ()const  => {
     }
   };
 
-  const fadeInUpconst  = {
+  const fadeInUp= {
     hidden: { opacity: 0, y: 20 },
     show: { 
       opacity: 1, 
@@ -147,7 +147,7 @@ const HomePageconst  = ()const  => {
           
           {loading ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {[...Array(4)].map((_, index)const  => (
+              {[...Array(4()].map((_, index()=> (
                 <div key={index} className="bg-white rounded-lg overflow-hidden shadow-sm p-4 animate-pulse">
                   <div className="w-full h-48 bg-gray-200 rounded-md mb-4"></div>
                   <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
@@ -157,9 +157,9 @@ const HomePageconst  = ()const  => {
                     <div className="h-8 w-8 bg-gray-200 rounded-full"></div>
                   </div>
                 </div>
-              ))}
+              ()()}
             </div>
-          ) : (
+          () : (
             <motion.div 
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
               variants={staggerContainer}
@@ -167,13 +167,13 @@ const HomePageconst  = ()const  => {
               whileInView="show"
               viewport={{ once: true, amount: 0.1 }}
             >
-              {featuredProducts.slice(0, 4).map((product)const  => (
+              {featuredProducts.slice(0, 4().map((product()=> (
                 <motion.div key={product.id} variants={fadeInUp}>
                   <ProductCard product={product} />
                 </motion.div>
-              ))}
+              ()()}
             </motion.div>
-          )}
+          ()}
         </div>
       </section>
 
@@ -189,7 +189,7 @@ const HomePageconst  = ()const  => {
             whileInView="show"
             viewport={{ once: true, amount: 0.1 }}
           >
-            {categories.slice(0, 4).map((category, index)const  => (
+            {categories.slice(0, 4().map((category, index()=> (
               <motion.div key={category.id} variants={fadeInUp}>
                 <Link 
                   to={`/products?category=${category.id}`}
@@ -209,7 +209,7 @@ const HomePageconst  = ()const  => {
                   </div>
                 </Link>
               </motion.div>
-            ))}
+            ()()}
           </motion.div>
         </div>
       </section>
@@ -274,11 +274,11 @@ const HomePageconst  = ()const  => {
             >
               <div className="flex items-center mb-4">
                 <div className="flex">
-                  {[...Array(5)].map((_, i)const  => (
+                  {[...Array(5()].map((_, i()=> (
                     <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
-                  ))}
+                  ()()}
                 </div>
               </div>
               <p className="text-gray-700 mb-4">
@@ -304,11 +304,11 @@ const HomePageconst  = ()const  => {
             >
               <div className="flex items-center mb-4">
                 <div className="flex">
-                  {[...Array(5)].map((_, i)const  => (
+                  {[...Array(5()].map((_, i()=> (
                     <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
-                  ))}
+                  ()()}
                 </div>
               </div>
               <p className="text-gray-700 mb-4">
@@ -334,11 +334,11 @@ const HomePageconst  = ()const  => {
             >
               <div className="flex items-center mb-4">
                 <div className="flex">
-                  {[...Array(5)].map((_, i)const  => (
+                  {[...Array(5()].map((_, i()=> (
                     <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
-                  ))}
+                  ()()}
                 </div>
               </div>
               <p className="text-gray-700 mb-4">
@@ -379,7 +379,7 @@ const HomePageconst  = ()const  => {
         </div>
       </section>
     </div>
-  );
+  ();
 };
 
 export default HomePage;

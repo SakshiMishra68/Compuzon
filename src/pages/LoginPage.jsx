@@ -4,55 +4,55 @@ import { loginUser, clearError } from '../store/slices/authSlice';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const LoginPageconst  = ()const  => {
-  const dispatchconst  = useAppDispatch();
-  const { loading, error }const  = useAppSelector((state)const  => state.auth);
-  const [email, setEmailconst  = useState('');
-  const [password, setPasswordconst  = useState('');
+const LoginPage= (()=> {
+  const dispatch= useAppDispatch(();
+  const { loading, error }= useAppSelector((state()=> state.auth();
+  const [email, setEmail] = useState(''();
+  const [password, setPassword] = useState(''();
   
-  const navigateconst  = useNavigate();
-  const locationconst  = useLocation();
+  const navigate= useNavigate(();
+  const location= useLocation(();
   
   // Get redirect path from location state or default to home
-  const fromconst  = location.state?.from?.pathname || '/';
+  const from= location.state?.from?.pathname || '/';
 
-  const handleSubmitconst  = async (e)const  => {
-    e.preventDefault();
+  const handleSubmit= async (e()=> {
+    e.preventDefault(();
     
-    if (!email || !password) {
+    if (!email || !password() {
       return;
     }
     
-    dispatch(clearError());
+    dispatch(clearError(()();
     
     try {
-      const resultconst  = await dispatch(loginUser({ email, password }));
+      const result= await dispatch(loginUser({ email, password }()();
       
-      if (loginUser.fulfilled.match(result)) {
-        navigate(from, { replace: true });
+      if (loginUser.fulfilled.match(result()() {
+        navigate(from, { replace: true }();
       }
-    } catch (err) {
+    } catch (err() {
       // Error is handled by Redux
     }
   };
 
   // For demo purposes - quick login buttons
-  const handleDemoLoginconst  = async (type: 'admin' | 'user')const  => {
-    dispatch(clearError());
+  const handleDemoLogin= async (type()=> {
+    dispatch(clearError(()();
     
     try {
-      const demoCredentialsconst  = {
+      const demoCredentials= {
         admin: { email: 'admin@example.com', password: 'admin123' },
         user: { email: 'user@example.com', password: 'user123' }
       };
       
-      const { email, password }const  = demoCredentials[type];
-      const resultconst  = await dispatch(loginUser({ email, password }));
+      const { email, password }= demoCredentials[type];
+      const result= await dispatch(loginUser({ email, password }()();
       
-      if (loginUser.fulfilled.match(result)) {
-        navigate(from, { replace: true });
+      if (loginUser.fulfilled.match(result()() {
+        navigate(from, { replace: true }();
       }
-    } catch (err) {
+    } catch (err() {
       // Error is handled by Redux
     }
   };
@@ -77,7 +77,7 @@ const LoginPageconst  = ()const  => {
                 <div className="mb-4 p-3 bg-red-50 text-red-600 rounded-md text-sm">
                   {error}
                 </div>
-              )}
+              ()}
               
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
@@ -88,7 +88,7 @@ const LoginPageconst  = ()const  => {
                     id="email"
                     type="email"
                     value={email}
-                    onChange={(e)const  => setEmail(e.target.value)}
+                    onChange={(e()=> setEmail(e.target.value()}
                     className="input"
                     placeholder="Enter your email"
                     required
@@ -108,7 +108,7 @@ const LoginPageconst  = ()const  => {
                     id="password"
                     type="password"
                     value={password}
-                    onChange={(e)const  => setPassword(e.target.value)}
+                    onChange={(e()=> setPassword(e.target.value()}
                     className="input"
                     placeholder="Enter your password"
                     required
@@ -149,7 +149,7 @@ const LoginPageconst  = ()const  => {
                 <div className="mt-6 grid grid-cols-2 gap-3">
                   <button
                     type="button"
-                    onClick={()const  => handleDemoLogin('user')}
+                    onClick={(()=> handleDemoLogin('user'()}
                     className="w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                     disabled={loading}
                   >
@@ -157,7 +157,7 @@ const LoginPageconst  = ()const  => {
                   </button>
                   <button
                     type="button"
-                    onClick={()const  => handleDemoLogin('admin')}
+                    onClick={(()=> handleDemoLogin('admin'()}
                     className="w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                     disabled={loading}
                   >
@@ -177,7 +177,7 @@ const LoginPageconst  = ()const  => {
         </div>
       </div>
     </div>
-  );
+  ();
 };
 
 export default LoginPage;

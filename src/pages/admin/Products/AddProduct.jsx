@@ -2,22 +2,22 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Upload, X, Plus, Save } from 'lucide-react';
 
-const AddProductconst  = ()const  => {
-  const [images, setImagesconst  = useState([]);
-  const [imagePreview, setImagePreviewconst  = useState([]);
+const AddProduct= (()=> {
+  const [images, setImages] = useState([();
+  const [imagePreview, setImagePreview] = useState([();
 
-  const handleImageChangeconst  = (e)const  => {
-    const filesconst  = Array.from(e.target.files || []);
-    setImages(prevconst  => [...prev, ...files]);
+  const handleImageChange= (e()=> {
+    const files= Array.from(e.target.files || [();
+    setImages(prev=> [...prev, ...files();
     
     // Create preview URLs
-    const newPreviewsconst  = files.map(fileconst  => URL.createObjectURL(file));
-    setImagePreview(prevconst  => [...prev, ...newPreviews]);
+    const newPreviews= files.map(file=> URL.createObjectURL(file()();
+    setImagePreview(prev=> [...prev, ...newPreviews();
   };
 
-  const removeImageconst  = (index)const  => {
-    setImages(prevconst  => prev.filter((_, i)const  => i !== index));
-    setImagePreview(prevconst  => prev.filter((_, i)const  => i !== index));
+  const removeImage= (index()=> {
+    setImages(prev=> prev.filter((_, i()=> i !== index()();
+    setImagePreview(prev=> prev.filter((_, i()=> i !== index()();
   };
 
   return (
@@ -127,7 +127,7 @@ const AddProductconst  = ()const  => {
               
               {imagePreview.length > 0 && (
                 <div className="grid grid-cols-4 gap-4 mt-4">
-                  {imagePreview.map((preview, index)const  => (
+                  {imagePreview.map((preview, index()=> (
                     <div key={index} className="relative">
                       <img
                         src={preview}
@@ -136,15 +136,15 @@ const AddProductconst  = ()const  => {
                       />
                       <button
                         type="button"
-                        onClick={()const  => removeImage(index)}
+                        onClick={(()=> removeImage(index()}
                         className="absolute -top-2 -right-2 p-1 bg-red-500 text-white rounded-full"
                       >
                         <X className="h-4 w-4" />
                       </button>
                     </div>
-                  ))}
+                  ()()}
                 </div>
-              )}
+              ()}
             </div>
             
             <div>
@@ -222,7 +222,7 @@ const AddProductconst  = ()const  => {
         </div>
       </form>
     </div>
-  );
+  ();
 };
 
 export default AddProduct;

@@ -7,20 +7,20 @@ import { useAppDispatch } from '../../store/hooks';
 import { addToCart } from '../../store/slices/cartSlice';
 
 
-const ProductCardconst  = ({ product })const  => {
-  const dispatchconst  = useAppDispatch();
+const ProductCard= ({ product }()=> {
+  const dispatch= useAppDispatch(();
 
   // Format price with commas
-  const formatPriceconst  = (price)const  => {
+  const formatPrice= (price()=> {
     return price.toLocaleString('en-US', {
       style: 'currency',
       currency: 'USD',
       minimumFractionDigits: 2
-    });
+    }();
   };
 
-  const discountPercentageconst  = product.originalPrice 
-    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) 
+  const discountPercentage= product.originalPrice 
+    ? Math.round(((product.originalPrice - product.price() / product.originalPrice() * 100() 
     : 0;
 
   return (
@@ -60,17 +60,17 @@ const ProductCardconst  = ({ product })const  => {
             <span className="bg-secondary text-white text-xs font-bold px-2 py-1 rounded">
               Featured
             </span>
-          )}
+          ()}
           {discountPercentage > 0 && (
             <span className="bg-accent text-white text-xs font-bold px-2 py-1 rounded">
               {discountPercentage}% OFF
             </span>
-          )}
+          ()}
           {!product.inStock && (
             <span className="bg-gray-800 text-white text-xs font-bold px-2 py-1 rounded">
               Out of Stock
             </span>
-          )}
+          ()}
         </div>
       </div>
       
@@ -90,19 +90,19 @@ const ProductCardconst  = ({ product })const  => {
         {/* Rating */}
         <div className="flex items-center mb-3">
           <div className="flex items-center">
-            {[...Array(5)].map((_, i)const  => (
+            {[...Array(5()].map((_, i()=> (
               <svg 
                 key={i} 
-                className={`w-4 h-4 ${i < Math.round(product.rating) ? 'text-yellow-400' : 'text-gray-300'}`}
+                className={`w-4 h-4 ${i < Math.round(product.rating() ? 'text-yellow-400' : 'text-gray-300'}`}
                 fill="currentColor" 
                 viewBox="0 0 20 20"
               >
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-            ))}
+            ()()}
           </div>
           <span className="text-sm text-gray-500 ml-1">
-            ({product.reviewCount})
+            ({product.reviewCount}()
           </span>
         </div>
         
@@ -110,13 +110,13 @@ const ProductCardconst  = ({ product })const  => {
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <span className="text-lg font-bold text-gray-900">
-              {formatPrice(product.price)}
+              {formatPrice(product.price()}
             </span>
             {product.originalPrice && (
               <span className="text-sm text-gray-500 line-through ml-2">
-                {formatPrice(product.originalPrice)}
+                {formatPrice(product.originalPrice()}
               </span>
-            )}
+            ()}
           </div>
           
           <motion.button
@@ -127,8 +127,8 @@ const ProductCardconst  = ({ product })const  => {
                 ? 'bg-primary text-white hover:bg-primary-dark' 
                 : 'bg-gray-200 text-gray-400 cursor-not-allowed'
             } transition-colors`}
-            onClick={()const  => product.inStock && addToCart(product)}
-            onClick={()const  => product.inStock && dispatch(addToCart({ product }))}
+            onClick={(()=> product.inStock && addToCart(product()}
+            onClick={(()=> product.inStock && dispatch(addToCart({ product }()()}
             disabled={!product.inStock}
             aria-label="Add to cart"
           >
@@ -137,7 +137,7 @@ const ProductCardconst  = ({ product })const  => {
         </div>
       </div>
     </motion.div>
-  );
+  ();
 };
 
 export default ProductCard;

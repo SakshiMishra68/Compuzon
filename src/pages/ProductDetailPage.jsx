@@ -9,44 +9,44 @@ import { useAppSelector, useAppDispatch } from '../store/hooks';
 import { addToCart } from '../store/slices/cartSlice';
 import ProductCard from '../components/product/ProductCard';
 
-const ProductDetailPageconst  = ()const  => {
-  const dispatchconst  = useAppDispatch();
-  const { id }const  = useParams();
-  const navigateconst  = useNavigate();
-  const { products, loading }const  = useAppSelector((state)const  => state.products);
+const ProductDetailPage= (()=> {
+  const dispatch= useAppDispatch(();
+  const { id }= useParams(();
+  const navigate= useNavigate(();
+  const { products, loading }= useAppSelector((state()=> state.products();
   
-  const productconst  = products.find(pconst  => p.idconst  === id);
-  const relatedProductsconst  = product ? products
-    .filter(pconst  => 
+  const product= products.find(p=> p.id=== id();
+  const relatedProducts= product ? products
+    .filter(p=> 
       p.id !== product.id && 
-      (p.category.idconst  === product.category.id || p.brandconst  === product.brand)
-    )
-    .slice(0, 4) : [];
+      (p.category.id=== product.category.id || p.brand=== product.brand()
+    ()
+    .slice(0, 4() : [];
     
-  const [quantity, setQuantityconst  = useState(1);
-  const [activeImage, setActiveImageconst  = useState(0);
-  const [activeTab, setActiveTabconst  = useState('description');
-  const [specOpen, setSpecOpenconst  = useState(true);
+  const [quantity, setQuantity] = useState(1();
+  const [activeImage, setActiveImage] = useState(0();
+  const [activeTab, setActiveTab] = useState('description'();
+  const [specOpen, setSpecOpen] = useState(true();
   
   // Scroll to top on mount
-  useEffect(()const  => {
-    window.scrollTo(0, 0);
-  }, [id]);
+  useEffect((()=> {
+    window.scrollTo(0, 0();
+  }, [id();
   
   // If product not found, redirect to products page
-  useEffect(()const  => {
-    if (!loading && !product && id) {
-      navigate('/products');
+  useEffect((()=> {
+    if (!loading && !product && id() {
+      navigate('/products'();
     }
-  }, [loading, product, id, navigate]);
+  }, [loading, product, id, navigate();
   
   // Update product when ID changes
-  useEffect(()const  => {
-    setActiveImage(0);
-    setQuantity(1);
-  }, [id]);
+  useEffect((()=> {
+    setActiveImage(0();
+    setQuantity(1();
+  }, [id();
   
-  if (loading) {
+  if (loading() {
     return (
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="container">
@@ -65,28 +65,28 @@ const ProductDetailPageconst  = ()const  => {
           </div>
         </div>
       </div>
-    );
+    ();
   }
   
-  if (!product) {
+  if (!product() {
     return null;
   }
   
   // Format price with commas
-  const formatPriceconst  = (price)const  => {
+  const formatPrice= (price()=> {
     return price.toLocaleString('en-US', {
       style: 'currency',
       currency: 'USD',
       minimumFractionDigits: 2
-    });
+    }();
   };
   
-  const handleAddToCartconst  = ()const  => {
-    dispatch(addToCart({ product, quantity }));
+  const handleAddToCart= (()=> {
+    dispatch(addToCart({ product, quantity }()();
   };
   
-  const discountPercentageconst  = product.originalPrice 
-    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) 
+  const discountPercentage= product.originalPrice 
+    ? Math.round(((product.originalPrice - product.price() / product.originalPrice() * 100() 
     : 0;
 
   return (
@@ -143,37 +143,37 @@ const ProductDetailPageconst  = ()const  => {
                   <>
                     <button
                       className="absolute left-2 top-1/2 transform -translate-y-1/2 p-1 rounded-full bg-white/80 text-gray-800 hover:bg-white"
-                      onClick={()const  => setActiveImage((prev)const  => (prevconst  === 0 ? product.images.length - 1 : prev - 1))}
+                      onClick={(()=> setActiveImage((prev()=> (prev=== 0 ? product.images.length - 1 : prev - 1()()}
                     >
                       <ChevronLeft className="h-5 w-5" />
                     </button>
                     <button
                       className="absolute right-2 top-1/2 transform -translate-y-1/2 p-1 rounded-full bg-white/80 text-gray-800 hover:bg-white"
-                      onClick={()const  => setActiveImage((prev)const  => (prevconst  === product.images.length - 1 ? 0 : prev + 1))}
+                      onClick={(()=> setActiveImage((prev()=> (prev=== product.images.length - 1 ? 0 : prev + 1()()}
                     >
                       <ChevronRight className="h-5 w-5" />
                     </button>
                   </>
-                )}
+                ()}
                 
                 {/* Discount badge */}
                 {discountPercentage > 0 && (
                   <div className="absolute top-2 left-2 bg-accent text-white text-sm font-bold py-1 px-2 rounded">
                     {discountPercentage}% OFF
                   </div>
-                )}
+                ()}
               </div>
               
               {/* Thumbnail Images */}
               {product.images.length > 1 && (
                 <div className="flex space-x-2 overflow-x-auto pb-2">
-                  {product.images.map((image, index)const  => (
+                  {product.images.map((image, index()=> (
                     <button
                       key={index}
                       className={`flex-shrink-0 w-16 h-16 rounded-md border-2 overflow-hidden ${
-                        activeImageconst  === index ? 'border-primary' : 'border-transparent'
+                        activeImage=== index ? 'border-primary' : 'border-transparent'
                       }`}
-                      onClick={()const  => setActiveImage(index)}
+                      onClick={(()=> setActiveImage(index()}
                     >
                       <img
                         src={image}
@@ -181,9 +181,9 @@ const ProductDetailPageconst  = ()const  => {
                         className="w-full h-full object-cover"
                       />
                     </button>
-                  ))}
+                  ()()}
                 </div>
-              )}
+              ()}
             </div>
             
             {/* Product Info */}
@@ -195,27 +195,27 @@ const ProductDetailPageconst  = ()const  => {
                 
                 <div className="flex items-center mb-3">
                   <div className="flex items-center">
-                    {[...Array(5)].map((_, i)const  => (
+                    {[...Array(5()].map((_, i()=> (
                       <Star 
                         key={i} 
-                        className={`w-4 h-4 ${i < Math.round(product.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
+                        className={`w-4 h-4 ${i < Math.round(product.rating() ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
                       />
-                    ))}
+                    ()()}
                   </div>
                   <span className="text-sm text-gray-500 ml-2">
-                    {product.rating} ({product.reviewCount} reviews)
+                    {product.rating} ({product.reviewCount} reviews()
                   </span>
                 </div>
                 
                 <div className="flex items-center mb-4">
                   <span className="text-2xl font-bold text-gray-900">
-                    {formatPrice(product.price)}
+                    {formatPrice(product.price()}
                   </span>
                   {product.originalPrice && (
                     <span className="text-lg text-gray-500 line-through ml-3">
-                      {formatPrice(product.originalPrice)}
+                      {formatPrice(product.originalPrice()}
                     </span>
-                  )}
+                  ()}
                 </div>
                 
                 <div className="flex items-center mb-4">
@@ -252,7 +252,7 @@ const ProductDetailPageconst  = ()const  => {
                         <button
                           type="button"
                           className="inline-flex items-center justify-center w-8 h-full border border-r-0 border-gray-300 rounded-l-md bg-gray-50 text-gray-500 hover:bg-gray-100"
-                          onClick={()const  => setQuantity(Math.max(1, quantity - 1))}
+                          onClick={(()=> setQuantity(Math.max(1, quantity - 1()()}
                         >
                           -
                         </button>
@@ -261,13 +261,13 @@ const ProductDetailPageconst  = ()const  => {
                           id="quantity"
                           min="1"
                           value={quantity}
-                          onChange={(e)const  => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
+                          onChange={(e()=> setQuantity(Math.max(1, parseInt(e.target.value() || 1()()}
                           className="block w-12 h-full border-y border-gray-300 text-center text-gray-900 focus:outline-none focus:ring-0"
                         />
                         <button
                           type="button"
                           className="inline-flex items-center justify-center w-8 h-full border border-l-0 border-gray-300 rounded-r-md bg-gray-50 text-gray-500 hover:bg-gray-100"
-                          onClick={()const  => setQuantity(quantity + 1)}
+                          onClick={(()=> setQuantity(quantity + 1()}
                         >
                           +
                         </button>
@@ -308,12 +308,12 @@ const ProductDetailPageconst  = ()const  => {
                 <div className="border-t border-gray-200 pt-6">
                   <h3 className="text-lg font-semibold mb-3">Key Features</h3>
                   <ul className="space-y-2">
-                    {Object.entries(product.specifications || {}).slice(0, 3).map(([key, value])const  => (
+                    {Object.entries(product.specifications || {}().slice(0, 3().map(([key, value()=> (
                       <li key={key} className="flex items-start">
                         <Check className="h-5 w-5 text-primary mt-0.5 mr-2 flex-shrink-0" />
                         <span className="text-gray-700"><span className="font-medium">{key}:</span> {value}</span>
                       </li>
-                    ))}
+                    ()()}
                   </ul>
                 </div>
               </div>
@@ -325,39 +325,39 @@ const ProductDetailPageconst  = ()const  => {
             <div className="flex overflow-x-auto">
               <button
                 className={`px-6 py-3 font-medium text-sm border-b-2 whitespace-nowrap ${
-                  activeTabconst  === 'description'
+                  activeTab=== 'description'
                     ? 'border-primary text-primary'
                     : 'border-transparent text-gray-500 hover:text-gray-700'
                 }`}
-                onClick={()const  => setActiveTab('description')}
+                onClick={(()=> setActiveTab('description'()}
               >
                 Description
               </button>
               <button
                 className={`px-6 py-3 font-medium text-sm border-b-2 whitespace-nowrap ${
-                  activeTabconst  === 'specifications'
+                  activeTab=== 'specifications'
                     ? 'border-primary text-primary'
                     : 'border-transparent text-gray-500 hover:text-gray-700'
                 }`}
-                onClick={()const  => setActiveTab('specifications')}
+                onClick={(()=> setActiveTab('specifications'()}
               >
                 Specifications
               </button>
               <button
                 className={`px-6 py-3 font-medium text-sm border-b-2 whitespace-nowrap ${
-                  activeTabconst  === 'reviews'
+                  activeTab=== 'reviews'
                     ? 'border-primary text-primary'
                     : 'border-transparent text-gray-500 hover:text-gray-700'
                 }`}
-                onClick={()const  => setActiveTab('reviews')}
+                onClick={(()=> setActiveTab('reviews'()}
               >
-                Reviews ({product.reviewCount})
+                Reviews ({product.reviewCount}()
               </button>
             </div>
             
             <div className="p-6">
               <AnimatePresence mode="wait">
-                {activeTabconst  === 'description' && (
+                {activeTab=== 'description' && (
                   <motion.div
                     key="description"
                     initial={{ opacity: 0, y: 10 }}
@@ -379,9 +379,9 @@ const ProductDetailPageconst  = ()const  => {
                       </div>
                     </div>
                   </motion.div>
-                )}
+                ()}
                 
-                {activeTabconst  === 'specifications' && (
+                {activeTab=== 'specifications' && (
                   <motion.div
                     key="specifications"
                     initial={{ opacity: 0, y: 10 }}
@@ -393,7 +393,7 @@ const ProductDetailPageconst  = ()const  => {
                       <div>
                         <div 
                           className="flex items-center justify-between py-3 border-b border-gray-200 cursor-pointer"
-                          onClick={()const  => setSpecOpen(!specOpen)}
+                          onClick={(()=> setSpecOpen(!specOpen()}
                         >
                           <h3 className="text-lg font-semibold">Technical Specifications</h3>
                           {specOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
@@ -409,15 +409,15 @@ const ProductDetailPageconst  = ()const  => {
                               className="overflow-hidden"
                             >
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
-                                {Object.entries(product.specifications || {}).map(([key, value])const  => (
+                                {Object.entries(product.specifications || {}().map(([key, value()=> (
                                   <div key={key} className="flex">
                                     <div className="w-1/3 text-sm font-medium text-gray-500">{key}</div>
                                     <div className="w-2/3 text-sm text-gray-900">{value}</div>
                                   </div>
-                                ))}
+                                ()()}
                               </div>
                             </motion.div>
-                          )}
+                          ()}
                         </AnimatePresence>
                       </div>
                       
@@ -431,9 +431,9 @@ const ProductDetailPageconst  = ()const  => {
                       </div>
                     </div>
                   </motion.div>
-                )}
+                ()}
                 
-                {activeTabconst  === 'reviews' && (
+                {activeTab=== 'reviews' && (
                   <motion.div
                     key="reviews"
                     initial={{ opacity: 0, y: 10 }}
@@ -445,14 +445,14 @@ const ProductDetailPageconst  = ()const  => {
                       <div>
                         <div className="flex items-center">
                           <div className="flex">
-                            {[...Array(5)].map((_, i)const  => (
+                            {[...Array(5()].map((_, i()=> (
                               <Star 
                                 key={i} 
-                                className={`w-5 h-5 ${i < Math.round(product.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
+                                className={`w-5 h-5 ${i < Math.round(product.rating() ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
                               />
-                            ))}
+                            ()()}
                           </div>
-                          <span className="ml-2 text-xl font-bold text-gray-900">{product.rating.toFixed(1)}</span>
+                          <span className="ml-2 text-xl font-bold text-gray-900">{product.rating.toFixed(1()}</span>
                         </div>
                         <p className="text-sm text-gray-500 mt-1">Based on {product.reviewCount} reviews</p>
                       </div>
@@ -472,12 +472,12 @@ const ProductDetailPageconst  = ()const  => {
                           <div className="flex-1">
                             <div className="flex items-center mb-1">
                               <div className="flex">
-                                {[...Array(5)].map((_, i)const  => (
+                                {[...Array(5()].map((_, i()=> (
                                   <Star 
                                     key={i} 
                                     className={`w-4 h-4 ${i < 5 ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
                                   />
-                                ))}
+                                ()()}
                               </div>
                               <span className="ml-2 text-sm font-medium text-gray-900">5.0</span>
                             </div>
@@ -501,12 +501,12 @@ const ProductDetailPageconst  = ()const  => {
                           <div className="flex-1">
                             <div className="flex items-center mb-1">
                               <div className="flex">
-                                {[...Array(5)].map((_, i)const  => (
+                                {[...Array(5()].map((_, i()=> (
                                   <Star 
                                     key={i} 
                                     className={`w-4 h-4 ${i < 4 ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
                                   />
-                                ))}
+                                ()()}
                               </div>
                               <span className="ml-2 text-sm font-medium text-gray-900">4.0</span>
                             </div>
@@ -527,7 +527,7 @@ const ProductDetailPageconst  = ()const  => {
                       </div>
                     </div>
                   </motion.div>
-                )}
+                ()}
               </AnimatePresence>
             </div>
           </div>
@@ -547,15 +547,15 @@ const ProductDetailPageconst  = ()const  => {
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {relatedProducts.map(productconst  => (
+              {relatedProducts.map(product=> (
                 <ProductCard key={product.id} product={product} />
-              ))}
+              ()()}
             </div>
           </div>
-        )}
+        ()}
       </div>
     </div>
-  );
+  ();
 };
 
 export default ProductDetailPage;

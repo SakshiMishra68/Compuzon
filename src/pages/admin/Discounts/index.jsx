@@ -3,7 +3,7 @@ import { Plus, Edit, Trash2, Tag } from 'lucide-react';
 import DiscountModal from './DiscountModal';
 
 // Sample data
-const sampleDiscountsconst  = [
+const sampleDiscounts= [
   {
     id: 1,
     discountName: 'Summer Sale',
@@ -24,25 +24,25 @@ const sampleDiscountsconst  = [
   },
 ];
 
-const Discountsconst  = ()const  => {
-  const [isModalOpen, setIsModalOpenconst  = useState(false);
-  const [editingDiscount, setEditingDiscountconst  = useState(null);
+const Discounts= (()=> {
+  const [isModalOpen, setIsModalOpen] = useState(false();
+  const [editingDiscount, setEditingDiscount] = useState(null();
 
-  const handleEditconst  = (discount)const  => {
-    setEditingDiscount(discount);
-    setIsModalOpen(true);
+  const handleEdit= (discount()=> {
+    setEditingDiscount(discount();
+    setIsModalOpen(true();
   };
 
-  const handleDeleteconst  = (id)const  => {
+  const handleDelete= (id()=> {
     // Implement delete functionality
-    console.log('Delete discount:', id);
+    console.log('Delete discount:', id();
   };
 
-  const handleSaveconst  = (discountData)const  => {
+  const handleSave= (discountData()=> {
     // Implement save functionality
-    console.log('Save discount:', discountData);
-    setIsModalOpen(false);
-    setEditingDiscount(null);
+    console.log('Save discount:', discountData();
+    setIsModalOpen(false();
+    setEditingDiscount(null();
   };
 
   return (
@@ -53,9 +53,9 @@ const Discountsconst  = ()const  => {
           Discounts
         </h1>
         <button
-          onClick={()const  => {
-            setEditingDiscount(null);
-            setIsModalOpen(true);
+          onClick={(()=> {
+            setEditingDiscount(null();
+            setIsModalOpen(true();
           }}
           className="btn btn-primary flex items-center gap-2"
         >
@@ -86,11 +86,11 @@ const Discountsconst  = ()const  => {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {sampleDiscounts.map((discount)const  => {
-              const nowconst  = new Date();
-              const startDateconst  = new Date(discount.startDate);
-              const endDateconst  = new Date(discount.endDate);
-              const statusconst  = now < startDate ? 'Upcoming' : now > endDate ? 'Expired' : 'Active';
+            {sampleDiscounts.map((discount()=> {
+              const now= new Date(();
+              const startDate= new Date(discount.startDate();
+              const endDate= new Date(discount.endDate();
+              const status= now < startDate ? 'Upcoming' : now > endDate ? 'Expired' : 'Active';
 
               return (
                 <tr key={discount.id}>
@@ -106,13 +106,13 @@ const Discountsconst  = ()const  => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className="text-sm text-gray-500">
-                      {new Date(discount.startDate).toLocaleDateString()} - {new Date(discount.endDate).toLocaleDateString()}
+                      {new Date(discount.startDate().toLocaleDateString(()} - {new Date(discount.endDate().toLocaleDateString(()}
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                      statusconst  === 'Active' ? 'bg-green-100 text-green-800' :
-                      statusconst  === 'Upcoming' ? 'bg-blue-100 text-blue-800' :
+                      status=== 'Active' ? 'bg-green-100 text-green-800' :
+                      status=== 'Upcoming' ? 'bg-blue-100 text-blue-800' :
                       'bg-gray-100 text-gray-800'
                     }`}>
                       {status}
@@ -120,36 +120,36 @@ const Discountsconst  = ()const  => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                     <button
-                      onClick={()const  => handleEdit(discount)}
+                      onClick={(()=> handleEdit(discount()}
                       className="text-blue-600 hover:text-blue-900 mr-4"
                     >
                       <Edit className="h-5 w-5" />
                     </button>
                     <button
-                      onClick={()const  => handleDelete(discount.id)}
+                      onClick={(()=> handleDelete(discount.id()}
                       className="text-red-600 hover:text-red-900"
                     >
                       <Trash2 className="h-5 w-5" />
                     </button>
                   </td>
                 </tr>
-              );
-            })}
+              ();
+            }()}
           </tbody>
         </table>
       </div>
 
       <DiscountModal
         isOpen={isModalOpen}
-        onClose={()const  => {
-          setIsModalOpen(false);
-          setEditingDiscount(null);
+        onClose={(()=> {
+          setIsModalOpen(false();
+          setEditingDiscount(null();
         }}
         onSave={handleSave}
         discount={editingDiscount}
       />
     </div>
-  );
+  ();
 };
 
 export default Discounts;

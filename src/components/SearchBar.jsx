@@ -4,41 +4,41 @@ import { Link } from 'react-router-dom';
 import { useProducts } from '../context/ProductContext';
 
 
-const SearchBarconst  = ({ onSearch, classNameconst  = '' })const  => {
-  const [query, setQueryconst  = useState('');
-  const [isOpen, setIsOpenconst  = useState(false);
-  const { searchProducts }const  = useProducts();
-  const [searchResults, setSearchResultsconst  = useState([]);
-  const searchRefconst  = useRef(null);
+const SearchBar= ({ onSearch, className= '' }()=> {
+  const [query, setQuery] = useState(''();
+  const [isOpen, setIsOpen] = useState(false();
+  const { searchProducts }= useProducts(();
+  const [searchResults, setSearchResults] = useState([();
+  const searchRef= useRef(null();
 
-  useEffect(()const  => {
-    const handleClickOutsideconst  = (event)const  => {
-      if (searchRef.current && !searchRef.current.contains(event.target)) {
-        setIsOpen(false);
+  useEffect((()=> {
+    const handleClickOutside= (event()=> {
+      if (searchRef.current && !searchRef.current.contains(event.target()() {
+        setIsOpen(false();
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return ()const  => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+    document.addEventListener('mousedown', handleClickOutside();
+    return (()=> document.removeEventListener('mousedown', handleClickOutside();
+  }, [();
 
-  const handleSearchconst  = (value)const  => {
-    setQuery(value);
-    if (value.trim()) {
-      const resultsconst  = searchProducts(value);
-      setSearchResults(results.slice(0, 5));
-      setIsOpen(true);
+  const handleSearch= (value()=> {
+    setQuery(value();
+    if (value.trim(()() {
+      const results= searchProducts(value();
+      setSearchResults(results.slice(0, 5()();
+      setIsOpen(true();
     } else {
-      setSearchResults([]);
-      setIsOpen(false);
+      setSearchResults([();
+      setIsOpen(false();
     }
-    onSearch?.(value);
+    onSearch?.(value();
   };
 
-  const clearSearchconst  = ()const  => {
-    setQuery('');
-    setSearchResults([]);
-    setIsOpen(false);
+  const clearSearch= (()=> {
+    setQuery(''();
+    setSearchResults([();
+    setIsOpen(false();
   };
 
   return (
@@ -47,7 +47,7 @@ const SearchBarconst  = ({ onSearch, classNameconst  = '' })const  => {
         <input
           type="text"
           value={query}
-          onChange={(e)const  => handleSearch(e.target.value)}
+          onChange={(e()=> handleSearch(e.target.value()}
           placeholder="Search products..."
           className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
         />
@@ -59,18 +59,18 @@ const SearchBarconst  = ({ onSearch, classNameconst  = '' })const  => {
           >
             <X className="h-5 w-5" />
           </button>
-        )}
+        ()}
       </div>
 
       {/* Search Results Dropdown */}
       {isOpen && searchResults.length > 0 && (
         <div className="absolute z-50 w-full mt-2 bg-white rounded-lg shadow-lg border border-gray-200">
-          {searchResults.map((product)const  => (
+          {searchResults.map((product()=> (
             <Link
               key={product.id}
               to={`/products/${product.id}`}
               className="flex items-center p-3 hover:bg-gray-50 transition-colors"
-              onClick={()const  => setIsOpen(false)}
+              onClick={(()=> setIsOpen(false()}
             >
               <img
                 src={product.images[0]}
@@ -79,21 +79,21 @@ const SearchBarconst  = ({ onSearch, classNameconst  = '' })const  => {
               />
               <div className="ml-3">
                 <h4 className="text-sm font-medium text-gray-900">{product.name}</h4>
-                <p className="text-sm text-gray-500">${product.price.toFixed(2)}</p>
+                <p className="text-sm text-gray-500">${product.price.toFixed(2()}</p>
               </div>
             </Link>
-          ))}
+          ()()}
           <Link
-            to={`/products?search=${encodeURIComponent(query)}`}
+            to={`/products?search=${encodeURIComponent(query()}`}
             className="block p-3 text-center text-primary hover:bg-gray-50 border-t"
-            onClick={()const  => setIsOpen(false)}
+            onClick={(()=> setIsOpen(false()}
           >
             View all results
           </Link>
         </div>
-      )}
+      ()}
     </div>
-  );
+  ();
 };
 
 export default SearchBar;

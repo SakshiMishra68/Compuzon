@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Settings as SettingsIcon, Save, Bell, Lock, Globe, Palette } from 'lucide-react';
 
-const Settingsconst  = ()const  => {
-  const [activeTab, setActiveTabconst  = useState('general');
+const Settings= (()=> {
+  const [activeTab, setActiveTab] = useState('general'();
 
   return (
     <div className="p-6">
@@ -17,9 +17,9 @@ const Settingsconst  = ()const  => {
           <div className="bg-white rounded-lg shadow-sm p-4">
             <nav className="space-y-1">
               <button
-                onClick={()const  => setActiveTab('general')}
+                onClick={(()=> setActiveTab('general'()}
                 className={`w-full flex items-center px-4 py-2 text-sm font-medium rounded-md ${
-                  activeTabconst  === 'general'
+                  activeTab=== 'general'
                     ? 'bg-primary/10 text-primary'
                     : 'text-gray-900 hover:bg-gray-50'
                 }`}
@@ -28,9 +28,9 @@ const Settingsconst  = ()const  => {
                 General
               </button>
               <button
-                onClick={()const  => setActiveTab('notifications')}
+                onClick={(()=> setActiveTab('notifications'()}
                 className={`w-full flex items-center px-4 py-2 text-sm font-medium rounded-md ${
-                  activeTabconst  === 'notifications'
+                  activeTab=== 'notifications'
                     ? 'bg-primary/10 text-primary'
                     : 'text-gray-900 hover:bg-gray-50'
                 }`}
@@ -39,9 +39,9 @@ const Settingsconst  = ()const  => {
                 Notifications
               </button>
               <button
-                onClick={()const  => setActiveTab('security')}
+                onClick={(()=> setActiveTab('security'()}
                 className={`w-full flex items-center px-4 py-2 text-sm font-medium rounded-md ${
-                  activeTabconst  === 'security'
+                  activeTab=== 'security'
                     ? 'bg-primary/10 text-primary'
                     : 'text-gray-900 hover:bg-gray-50'
                 }`}
@@ -50,9 +50,9 @@ const Settingsconst  = ()const  => {
                 Security
               </button>
               <button
-                onClick={()const  => setActiveTab('appearance')}
+                onClick={(()=> setActiveTab('appearance'()}
                 className={`w-full flex items-center px-4 py-2 text-sm font-medium rounded-md ${
-                  activeTabconst  === 'appearance'
+                  activeTab=== 'appearance'
                     ? 'bg-primary/10 text-primary'
                     : 'text-gray-900 hover:bg-gray-50'
                 }`}
@@ -67,7 +67,7 @@ const Settingsconst  = ()const  => {
         {/* Settings Content */}
         <div className="lg:col-span-3">
           <div className="bg-white rounded-lg shadow-sm p-6">
-            {activeTabconst  === 'general' && (
+            {activeTab=== 'general' && (
               <div>
                 <h2 className="text-lg font-medium mb-6">General Settings</h2>
                 <form className="space-y-6">
@@ -96,9 +96,9 @@ const Settingsconst  = ()const  => {
                       Currency
                     </label>
                     <select className="input">
-                      <option>USD ($)</option>
-                      <option>EUR (€)</option>
-                      <option>GBP (£)</option>
+                      <option>USD ($()</option>
+                      <option>EUR (€()</option>
+                      <option>GBP (£()</option>
                     </select>
                   </div>
                   <div>
@@ -106,9 +106,9 @@ const Settingsconst  = ()const  => {
                       Time Zone
                     </label>
                     <select className="input">
-                      <option>UTC-5 (Eastern Time)</option>
-                      <option>UTC-4 (Atlantic Time)</option>
-                      <option>UTC-6 (Central Time)</option>
+                      <option>UTC-5 (Eastern Time()</option>
+                      <option>UTC-4 (Atlantic Time()</option>
+                      <option>UTC-6 (Central Time()</option>
                     </select>
                   </div>
                   <button type="submit" className="btn btn-primary flex items-center">
@@ -117,9 +117,9 @@ const Settingsconst  = ()const  => {
                   </button>
                 </form>
               </div>
-            )}
+            ()}
 
-            {activeTabconst  === 'notifications' && (
+            {activeTab=== 'notifications' && (
               <div>
                 <h2 className="text-lg font-medium mb-6">Notification Preferences</h2>
                 <div className="space-y-4">
@@ -155,9 +155,9 @@ const Settingsconst  = ()const  => {
                   </div>
                 </div>
               </div>
-            )}
+            ()}
 
-            {activeTabconst  === 'security' && (
+            {activeTab=== 'security' && (
               <div>
                 <h2 className="text-lg font-medium mb-6">Security Settings</h2>
                 <form className="space-y-6">
@@ -203,9 +203,9 @@ const Settingsconst  = ()const  => {
                   </button>
                 </form>
               </div>
-            )}
+            ()}
 
-            {activeTabconst  === 'appearance' && (
+            {activeTab=== 'appearance' && (
               <div>
                 <h2 className="text-lg font-medium mb-6">Appearance Settings</h2>
                 <div className="space-y-6">
@@ -246,12 +246,12 @@ const Settingsconst  = ()const  => {
                   </button>
                 </div>
               </div>
-            )}
+            ()}
           </div>
         </div>
       </div>
     </div>
-  );
+  ();
 };
 
 export default Settings;

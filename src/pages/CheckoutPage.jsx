@@ -1,7 +1,7 @@
 import React from 'react';
 import { ShoppingBag, CreditCard } from 'lucide-react';
 
-const CheckoutPageconst  = ()const  => {
+const CheckoutPage= (()=> {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8 flex items-center gap-2">
@@ -61,7 +61,7 @@ const CheckoutPageconst  = ()const  => {
         </div>
       </div>
     </div>
-  );
+  ();
 };
 
 export default CheckoutPage;

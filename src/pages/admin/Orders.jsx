@@ -3,8 +3,8 @@ import { ShoppingBag, Eye, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import OrderDetailsModal from './Orders/OrderDetailsModal';
 
-const AdminOrdersconst  = ()const  => {
-  const [selectedOrder, setSelectedOrderconst  = useState(null);
+const AdminOrders= (()=> {
+  const [selectedOrder, setSelectedOrder] = useState(null();
 
   return (
     <div className="p-6">
@@ -47,7 +47,7 @@ const AdminOrdersconst  = ()const  => {
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                 <button 
-                  onClick={()const  => setSelectedOrder('ORD-001')}
+                  onClick={(()=> setSelectedOrder('ORD-001'()}
                   className="text-blue-600 hover:text-blue-900"
                 >
                   <Eye className="w-4 h-4" />
@@ -62,11 +62,11 @@ const AdminOrdersconst  = ()const  => {
       {selectedOrder && (
         <OrderDetailsModal
           orderId={selectedOrder}
-          onClose={()const  => setSelectedOrder(null)}
+          onClose={(()=> setSelectedOrder(null()}
         />
-      )}
+      ()}
     </div>
-  );
+  ();
 };
 
 export default AdminOrders;

@@ -3,19 +3,19 @@ import { X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 
-const ProductTypeModalconst  = ({
+const ProductTypeModal= ({
   isOpen,
   onClose,
   onSave,
   productType
-})const  => {
-  const handleSubmitconst  = (e)const  => {
-    e.preventDefault();
-    const formDataconst  = new FormData(e.target);
-    const typeDataconst  = {
-      typeName: formData.get('typeName'),
+}()=> {
+  const handleSubmit= (e()=> {
+    e.preventDefault(();
+    const formData= new FormData(e.target();
+    const typeData= {
+      typeName: formData.get('typeName'(),
     };
-    onSave(typeData);
+    onSave(typeData();
   };
 
   return (
@@ -80,9 +80,9 @@ const ProductTypeModalconst  = ({
             </div>
           </motion.div>
         </>
-      )}
+      ()}
     </AnimatePresence>
-  );
+  ();
 };
 
 export default ProductTypeModal;

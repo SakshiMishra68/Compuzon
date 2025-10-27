@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Paperclip, X } from 'lucide-react';
 
-const NewTicketconst  = ()const  => {
-  const [files, setFilesconst  = useState([]);
+const NewTicket= (()=> {
+  const [files, setFiles] = useState([();
 
-  const handleFileChangeconst  = (e)const  => {
-    const selectedFilesconst  = Array.from(e.target.files || []);
-    setFiles(prevconst  => [...prev, ...selectedFiles]);
+  const handleFileChange= (e()=> {
+    const selectedFiles= Array.from(e.target.files || [();
+    setFiles(prev=> [...prev, ...selectedFiles();
   };
 
-  const removeFileconst  = (index)const  => {
-    setFiles(prevconst  => prev.filter((_, i)const  => i !== index));
+  const removeFile= (index()=> {
+    setFiles(prev=> prev.filter((_, i()=> i !== index()();
   };
 
   return (
@@ -56,7 +56,7 @@ const NewTicketconst  = ()const  => {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Order Number (Optional)
+                  Order Number (Optional()
                 </label>
                 <input
                   type="text"
@@ -145,7 +145,7 @@ const NewTicketconst  = ()const  => {
               
               {files.length > 0 && (
                 <div className="space-y-2">
-                  {files.map((file, index)const  => (
+                  {files.map((file, index()=> (
                     <div
                       key={index}
                       className="flex items-center justify-between bg-gray-50 p-3 rounded-lg"
@@ -156,15 +156,15 @@ const NewTicketconst  = ()const  => {
                       </div>
                       <button
                         type="button"
-                        onClick={()const  => removeFile(index)}
+                        onClick={(()=> removeFile(index()}
                         className="text-red-500 hover:text-red-700"
                       >
                         <X className="h-5 w-5" />
                       </button>
                     </div>
-                  ))}
+                  ()()}
                 </div>
-              )}
+              ()}
             </div>
           </div>
           
@@ -181,7 +181,7 @@ const NewTicketconst  = ()const  => {
         </form>
       </div>
     </div>
-  );
+  ();
 };
 
 export default NewTicket;

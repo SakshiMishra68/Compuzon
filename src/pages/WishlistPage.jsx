@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import { useAppDispatch } from '../store/hooks';
 import { addToCart } from '../store/slices/cartSlice';
 
-const WishlistPageconst  = ()const  => {
+const WishlistPage= (()=> {
   // Mock wishlist data
-  const wishlistItemsconst  = [
+  const wishlistItems= [
     {
       id: '1',
       name: 'NVIDIA GeForce RTX 4090 24GB',
@@ -25,13 +25,13 @@ const WishlistPageconst  = ()const  => {
     // Add more items as needed
   ];
 
-  const dispatchconst  = useAppDispatch();
+  const dispatch= useAppDispatch(();
 
-  const handleAddToCartconst  = (item)const  => {
-    dispatch(addToCart({ product: item }));
+  const handleAddToCart= (item()=> {
+    dispatch(addToCart({ product: item }()();
   };
 
-  if (wishlistItems.lengthconst  === 0) {
+  if (wishlistItems.length=== 0() {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center p-8">
         <Heart className="w-16 h-16 text-gray-400 mb-4" />
@@ -44,7 +44,7 @@ const WishlistPageconst  = ()const  => {
           Browse Products <ArrowRight className="ml-2 h-5 w-5" />
         </Link>
       </div>
-    );
+    ();
   }
 
   return (
@@ -52,7 +52,7 @@ const WishlistPageconst  = ()const  => {
       <h1 className="text-3xl font-bold mb-8">My Wishlist</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {wishlistItems.map((item)const  => (
+        {wishlistItems.map((item()=> (
           <motion.div
             key={item.id}
             initial={{ opacity: 0, y: 20 }}
@@ -84,7 +84,7 @@ const WishlistPageconst  = ()const  => {
               
               <div className="flex items-center justify-between mb-4">
                 <span className="text-xl font-bold text-gray-900">
-                  ${item.price.toFixed(2)}
+                  ${item.price.toFixed(2()}
                 </span>
                 <span className={`text-sm ${
                   item.inStock ? 'text-green-600' : 'text-red-600'
@@ -94,7 +94,7 @@ const WishlistPageconst  = ()const  => {
               </div>
               
               <button
-                onClick={()const  => handleAddToCart(item)}
+                onClick={(()=> handleAddToCart(item()}
                 disabled={!item.inStock}
                 className={`w-full btn ${
                   item.inStock
@@ -107,10 +107,10 @@ const WishlistPageconst  = ()const  => {
               </button>
             </div>
           </motion.div>
-        ))}
+        ()()}
       </div>
     </div>
-  );
+  ();
 };
 
 export default WishlistPage;

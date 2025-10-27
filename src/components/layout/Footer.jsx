@@ -4,7 +4,7 @@ import {
   Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube, ChevronRight 
 } from 'lucide-react';
 
-const Footerconst  = ()const  => {
+const Footer= (()=> {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container py-12">
@@ -24,7 +24,7 @@ const Footerconst  = ()const  => {
               </div>
               <div className="flex items-center">
                 <Phone className="h-5 w-5 mr-2 text-primary" />
-                <span className="text-gray-300">(123) 456-7890</span>
+                <span className="text-gray-300">(123() 456-7890</span>
               </div>
               <div className="flex items-center">
                 <Mail className="h-5 w-5 mr-2 text-primary" />
@@ -97,7 +97,7 @@ const Footerconst  = ()const  => {
               <li>
                 <Link to="/products?category=memory" className="text-gray-400 hover:text-primary transition-colors flex items-center">
                   <ChevronRight className="h-4 w-4 mr-2" />
-                  Memory (RAM)
+                  Memory (RAM()
                 </Link>
               </li>
               <li>
@@ -153,7 +153,7 @@ const Footerconst  = ()const  => {
         
         <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} PC Deals Hardware. All rights reserved.
+            &copy; {new Date(().getFullYear(()} PC Deals Hardware. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <Link to="/privacy" className="text-gray-400 text-sm hover:text-primary transition-colors">
@@ -172,7 +172,7 @@ const Footerconst  = ()const  => {
         </div>
       </div>
     </footer>
-  );
+  ();
 };
 
 export default Footer;

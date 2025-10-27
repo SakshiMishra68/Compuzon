@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Package, Plus, Edit, Trash2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const AdminProductsconst  = ()const  => {
-  const [showAddForm, setShowAddFormconst  = useState(false);
+const AdminProducts= (()=> {
+  const [showAddForm, setShowAddForm] = useState(false();
 
   return (
     <div className="p-6">
@@ -67,7 +67,7 @@ const AdminProductsconst  = ()const  => {
         </table>
       </div>
     </div>
-  );
+  ();
 };
 
 export default AdminProducts;

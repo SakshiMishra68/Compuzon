@@ -4,21 +4,21 @@ import { Tag, ArrowRight } from 'lucide-react';
 import { useAppSelector } from '../store/hooks';
 import ProductCard from '../components/product/ProductCard';
 
-const DealsPageconst  = ()const  => {
-  const productsconst  = useAppSelector((state)const  => state.products.products);
+const DealsPage= (()=> {
+  const products= useAppSelector((state()=> state.products.products();
 
-  // Filter products with discounts (has originalPrice)
-  const dealsProductsconst  = products.filter(productconst  => product.originalPrice);
+  // Filter products with discounts (has originalPrice()
+  const dealsProducts= products.filter(product=> product.originalPrice();
 
   // Group deals by category
-  const dealsByCategoryconst  = dealsProducts.reduce((acc, product)const  => {
-    const categoryconst  = product.category.name;
-    if (!acc[category]) {
-      acc[categoryconst  = [];
+  const dealsByCategory= dealsProducts.reduce((acc, product()=> {
+    const category= product.category.name;
+    if (!acc[category() {
+      acc[category= [];
     }
-    acc[category].push(product);
+    acc[category].push(product();
     return acc;
-  }, {} as Record<string, typeof products>);
+  }, {} as Record<string, typeof products>();
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
@@ -47,7 +47,7 @@ const DealsPageconst  = ()const  => {
         </div>
 
         {/* Deals by Category */}
-        {Object.entries(dealsByCategory).map(([category, products])const  => (
+        {Object.entries(dealsByCategory().map(([category, products()=> (
           <div key={category} className="mb-12">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-bold">{category} Deals</h2>
@@ -57,7 +57,7 @@ const DealsPageconst  = ()const  => {
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {products.map(productconst  => (
+              {products.map(product=> (
                 <motion.div
                   key={product.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -66,10 +66,10 @@ const DealsPageconst  = ()const  => {
                 >
                   <ProductCard product={product} />
                 </motion.div>
-              ))}
+              ()()}
             </div>
           </div>
-        ))}
+        ()()}
 
         {/* Featured Deal */}
         <div className="bg-white rounded-lg shadow-sm overflow-hidden mb-12">
@@ -127,7 +127,7 @@ const DealsPageconst  = ()const  => {
         </div>
       </div>
     </div>
-  );
+  ();
 };
 
 export default DealsPage;

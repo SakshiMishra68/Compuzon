@@ -3,31 +3,31 @@ import { Plus, Edit, Trash2, Tags } from 'lucide-react';
 import ProductTypeModal from './ProductTypeModal';
 
 // Sample data
-const sampleProductTypesconst  = [
+const sampleProductTypes= [
   { id: 1, typeName: 'Gaming', createdAt: '2025-03-15', updatedAt: '2025-03-15' },
   { id: 2, typeName: 'Workstation', createdAt: '2025-03-15', updatedAt: '2025-03-15' },
   { id: 3, typeName: 'Entry Level', createdAt: '2025-03-15', updatedAt: '2025-03-15' },
 ];
 
-const ProductTypesconst  = ()const  => {
-  const [isModalOpen, setIsModalOpenconst  = useState(false);
-  const [editingType, setEditingTypeconst  = useState(null);
+const ProductTypes= (()=> {
+  const [isModalOpen, setIsModalOpen] = useState(false();
+  const [editingType, setEditingType] = useState(null();
 
-  const handleEditconst  = (type)const  => {
-    setEditingType(type);
-    setIsModalOpen(true);
+  const handleEdit= (type()=> {
+    setEditingType(type();
+    setIsModalOpen(true();
   };
 
-  const handleDeleteconst  = (id)const  => {
+  const handleDelete= (id()=> {
     // Implement delete functionality
-    console.log('Delete product type:', id);
+    console.log('Delete product type:', id();
   };
 
-  const handleSaveconst  = (typeData)const  => {
+  const handleSave= (typeData()=> {
     // Implement save functionality
-    console.log('Save product type:', typeData);
-    setIsModalOpen(false);
-    setEditingType(null);
+    console.log('Save product type:', typeData();
+    setIsModalOpen(false();
+    setEditingType(null();
   };
 
   return (
@@ -38,9 +38,9 @@ const ProductTypesconst  = ()const  => {
           Product Types
         </h1>
         <button
-          onClick={()const  => {
-            setEditingType(null);
-            setIsModalOpen(true);
+          onClick={(()=> {
+            setEditingType(null();
+            setIsModalOpen(true();
           }}
           className="btn btn-primary flex items-center gap-2"
         >
@@ -68,7 +68,7 @@ const ProductTypesconst  = ()const  => {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {sampleProductTypes.map((type)const  => (
+            {sampleProductTypes.map((type()=> (
               <tr key={type.id}>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span className="text-sm font-medium text-gray-900">
@@ -76,42 +76,42 @@ const ProductTypesconst  = ()const  => {
                   </span>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {new Date(type.createdAt).toLocaleDateString()}
+                  {new Date(type.createdAt().toLocaleDateString(()}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {new Date(type.updatedAt).toLocaleDateString()}
+                  {new Date(type.updatedAt().toLocaleDateString(()}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                   <button
-                    onClick={()const  => handleEdit(type)}
+                    onClick={(()=> handleEdit(type()}
                     className="text-blue-600 hover:text-blue-900 mr-4"
                   >
                     <Edit className="h-5 w-5" />
                   </button>
                   <button
-                    onClick={()const  => handleDelete(type.id)}
+                    onClick={(()=> handleDelete(type.id()}
                     className="text-red-600 hover:text-red-900"
                   >
                     <Trash2 className="h-5 w-5" />
                   </button>
                 </td>
               </tr>
-            ))}
+            ()()}
           </tbody>
         </table>
       </div>
 
       <ProductTypeModal
         isOpen={isModalOpen}
-        onClose={()const  => {
-          setIsModalOpen(false);
-          setEditingType(null);
+        onClose={(()=> {
+          setIsModalOpen(false();
+          setEditingType(null();
         }}
         onSave={handleSave}
         productType={editingType}
       />
     </div>
-  );
+  ();
 };
 
 export default ProductTypes;
